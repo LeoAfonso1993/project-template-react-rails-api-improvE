@@ -10,10 +10,10 @@ function Login({ onLogin }) {
     function handleSubmit(e) {
         e.preventDefault();
         setIsLoading(true);
-        fetch("http://127.0.0.1:3000/login", {
+        fetch("/api/login", {
             method: "POST",
             headers: {
-              "Access-Control-Allow-Headers": "origin",
+              /*"Access-Control-Allow-Headers": "origin",*/
               "Content-Type": "application/json",
             },
             body: JSON.stringify({ emailAddress, password }),

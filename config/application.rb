@@ -21,9 +21,19 @@ Bundler.require(*Rails.groups)
 
 module ReactRailsApiProjectTemplate
   class Application < Rails::Application
+
+    # Access-Control-Allow-Origin
+      config.middleware.insert_before 0, Rack::Cors do
+        allow do
+          origins 'localhost:4000', /https*:\/\/.*?bloopist\.com/
+          resource '*', :headers => :any, :methods => :any
+        end
+      end
+
     # Adding cookies and session middleware
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore
+
 
     # Use SameSite=Strict for all cookies to help protect against CSRF
     # https://owasp.org/www-community/SameSite

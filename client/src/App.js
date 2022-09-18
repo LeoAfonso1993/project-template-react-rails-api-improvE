@@ -12,7 +12,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/me").then((r) => {
+    fetch("/api/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }

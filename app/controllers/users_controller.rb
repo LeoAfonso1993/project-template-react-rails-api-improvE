@@ -1,5 +1,9 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
     skip_before_action :authorize, only: :create
+
+    def index
+        render json: User.all
+    end
 
     def create
         user = User.create!(user_params)
@@ -14,7 +18,7 @@ class UsersController < ApplicationController
     private
     
     def user_params
-        params.permit(:name, :password, :password_confirmation, :is_admin)
+        params.permit(:name, :email, :password, :password_confirmation, :is_admin)
     end
 
 end
