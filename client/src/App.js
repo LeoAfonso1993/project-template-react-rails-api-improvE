@@ -26,17 +26,6 @@ function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
-        <NavBar user={user} setUser={setUser}/>
-        <div>
-          <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/new" element={<NewTraining/>}/>
-            <Route path="/training" element={<Training/>}/>
-          </Routes>
-        </div>
-=======
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -51,7 +40,6 @@ function App() {
           Learn React
         </a>
       </header>
->>>>>>> parent of aed4610 (Client basic routes added)
     </div>
   );
 }
