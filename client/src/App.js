@@ -1,14 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-<<<<<<< HEAD
-import Home from "./components/Home/Home";
-import Login from "./components/Login/Login";
-import NavBar from "./components/NavBar/NavBar";
-import NewTraining from "./components/NewTraining/NewTraining";
-import Training from "./components/Training/Training";
-import React, { useEffect, useState } from "react";
-=======
->>>>>>> parent of aed4610 (Client basic routes added)
 
 function App() {
 
