@@ -1,11 +1,14 @@
-import { Route, Routes } from "react-router-dom";
+import logo from './logo.svg';
 import './App.css';
+<<<<<<< HEAD
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import NavBar from "./components/NavBar/NavBar";
 import NewTraining from "./components/NewTraining/NewTraining";
 import Training from "./components/Training/Training";
 import React, { useEffect, useState } from "react";
+=======
+>>>>>>> parent of aed4610 (Client basic routes added)
 
 function App() {
 
@@ -23,6 +26,7 @@ function App() {
 
   return (
     <div className="App">
+<<<<<<< HEAD
         <NavBar user={user} setUser={setUser}/>
         <div>
           <Routes>
@@ -32,6 +36,22 @@ function App() {
             <Route path="/training" element={<Training/>}/>
           </Routes>
         </div>
+=======
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+>>>>>>> parent of aed4610 (Client basic routes added)
     </div>
   );
 }
