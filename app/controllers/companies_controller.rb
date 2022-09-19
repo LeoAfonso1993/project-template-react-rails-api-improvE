@@ -1,2 +1,2 @@
-class Api::CompaniesController < ApplicationController
+class CompaniesController < ApplicationController
 end
