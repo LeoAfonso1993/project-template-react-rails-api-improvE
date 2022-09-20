@@ -31,7 +31,11 @@ function LoginPage({onLogIn}){
             if(r.ok)
                 {r.json().then((user)=>{
                   onLogIn(user)
-                  navigate("/mytrainings"); /*Maybe will have to remove push*/
+                  if(user.is_admin === true){
+                    navigate("/admindashboard")
+                  } else {
+                    navigate("/mytrainings"); /*Maybe will have to remove push*/
+                  }
                   setFormData(defaultForm)
                 })}
             else
@@ -52,9 +56,9 @@ function LoginPage({onLogIn}){
           <br/>
           <button type="submit">Submit</button>
         </form>
-        {/* {errors.map((err) => (
+        {errors.map((err) => (
           <p key={err}>{err}</p>
-        ))} */}
+        ))}
       </div>
     );
 }
