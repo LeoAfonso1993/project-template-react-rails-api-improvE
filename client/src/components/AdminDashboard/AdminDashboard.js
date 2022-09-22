@@ -1,8 +1,8 @@
-import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
+import { Header, Icon, Menu, Segment, Sidebar } from 'semantic-ui-react'
 
 function Dashboard({user}) {
 
-    const welcome = `Welcome ${user.name}`
+    const welcome = `Welcome ${user ? user.email : "" }`
     return (
         <div>
         <Sidebar.Pushable as={Segment} style={{minHeight: '100vh'}}>
@@ -32,7 +32,6 @@ function Dashboard({user}) {
             <Sidebar.Pusher>
                 <Segment basic>
                     <Header as='h3'>Admin Dash</Header>
-                    <Image src='/images/wireframe/paragraph.png' />
                     {welcome}
                 </Segment>
             </Sidebar.Pusher>
