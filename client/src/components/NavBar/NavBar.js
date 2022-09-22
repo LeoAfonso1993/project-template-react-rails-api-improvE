@@ -11,7 +11,7 @@ function NavBar({user, setUser}) {
 
     function handleClick(){
         fetch("/logout")
-        .then((response) => response.json())
+        /*.then((response) => response.json())*/
         .then(() => setUser(null))
         .then(() => navigate("/"))
     }
