@@ -1,7 +1,11 @@
-import React, {useState} from "react"
-import { useNavigate } from 'react-router-dom';
+import React, {useState, useContext} from "react"
+import { useNavigate } from 'react-router-dom'; 
+import { UserContext } from '../../contexts/UserContext';
 
-function LoginPage({onLogIn}){
+
+function LoginPage(){
+    const {setUser} = useContext(UserContext);
+
     const defaultForm = {    
         email:"",
         password:""
@@ -30,7 +34,7 @@ function LoginPage({onLogIn}){
         .then(r=>{
             if(r.ok)
                 {r.json().then((user)=>{
-                  onLogIn(user)
+                  setUser(user)
                   if(user.is_admin === true){
                     navigate("/admindashboard")
                   } else {

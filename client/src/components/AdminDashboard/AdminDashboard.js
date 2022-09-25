@@ -1,6 +1,9 @@
 import { Header, Icon, Menu, Segment, Sidebar } from 'semantic-ui-react'
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext';
 
-function Dashboard({user}) {
+function Dashboard() {
+    const {user, setUser} = useContext(UserContext);
 
     const welcome = `Welcome ${user ? user.email : "" }`
     return (

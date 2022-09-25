@@ -7,9 +7,10 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'semantic-ui-css/semantic.min.css'
 
+
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+      <App />
   </BrowserRouter>,
   document.getElementById('root')
 );

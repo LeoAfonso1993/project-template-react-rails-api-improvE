@@ -5,33 +5,24 @@ import LoginPage from "./components/LoginPage/LoginPage";
 import MyTraining from "./components/MyTraining/MyTraining";
 import NavBar from "./components/NavBar/NavBar";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard"
-import React, { useEffect, useState } from "react";
+import { UserContextProvider } from "./contexts/UserContext";
 
 function App() {
-  const [user, setUser] = useState(null)
-
-  useEffect(()=>{
-    fetch("/me")
-    .then((r)=>{
-      if(r.ok){
-        console.log(r)
-        r.json().then((user)=>setUser(user))}
-    })
-    /*.then(() => console.log(user))*/
-  }, [])
 
   return (
-    <div className="App">
-        <NavBar user={user} setUser={setUser}/>
-        <div>
-          <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/login" element={<LoginPage onLogIn={setUser}/>}/>
-            <Route path="/mytrainings" element={<MyTraining user={user}/>}/>
-            <Route path="/admindashboard" element={<AdminDashboard user={user}/>}/>
-          </Routes>
-        </div>
-    </div>
+    <UserContextProvider>
+      <div className="App">
+          <NavBar/>
+          <div>
+            <Routes>
+              <Route path="/" element={<Home/>}/>
+              <Route path="/login" element={<LoginPage/>}/>
+              <Route path="/mytrainings" element={<MyTraining/>}/>
+              <Route path="/admindashboard" element={<AdminDashboard/>}/>
+            </Routes>
+          </div>
+      </div>
+    </UserContextProvider>
   );
 }
 

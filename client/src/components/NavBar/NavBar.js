@@ -2,15 +2,25 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext';
 
 
 
-function NavBar({user, setUser}) {
+function NavBar() {
+
+    const {user, setUser} = useContext(UserContext);
 
     const navigate = useNavigate();
 
     function handleClick(){
-        fetch("/logout")
+        fetch("/logout", {
+            method:"DELETE",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify()
+          })
         /*.then((response) => response.json())*/
         .then(() => setUser(null))
         .then(() => navigate("/"))
