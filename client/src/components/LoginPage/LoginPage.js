@@ -4,7 +4,7 @@ import { UserContext } from '../../contexts/UserContext';
 
 
 function LoginPage(){
-    const {setUser, storage, setStorage} = useContext(UserContext);
+    const {setUser} = useContext(UserContext);
 
     const defaultForm = {    
         email:"",
@@ -13,8 +13,6 @@ function LoginPage(){
     const [formData, setFormData]=useState(defaultForm)
     const [errors, setErrors] = useState([])
     const navigate = useNavigate();
-
-    
 
 
     function handleChange(e){

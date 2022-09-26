@@ -19,21 +19,19 @@ export function UserContextProvider({children}) {
             }
         }
         fetchResults();
-        console.log(user)
         return () => {
             abortController.abort();
         }
         /*.then(() => console.log(user))*/
     }, [])
 
-    useEffect(() => {
+    /*useEffect(() => { ###used this to try to persist login in the front end
         const loggedInUser = localStorage.getItem("user");
-        console.log(loggedInUser)
         if (loggedInUser) {
           const foundUser = JSON.parse(loggedInUser);
           setUser(foundUser);
         }
-      }, []);
+      }, []);*/
 
     return (
         <UserContext.Provider value={{user, setUser}}>

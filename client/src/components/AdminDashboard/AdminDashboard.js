@@ -36,8 +36,6 @@ function Dashboard() {
                 <Segment basic>
                     <Header as='h3'>Admin Dash</Header>
                     {welcome}
-
-                    {console.log(localStorage.user)}
                 </Segment>
             </Sidebar.Pusher>
         </Sidebar.Pushable>
