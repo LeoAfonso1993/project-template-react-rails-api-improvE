@@ -3,9 +3,9 @@ import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 
 function Dashboard() {
-    const {user, setUser} = useContext(UserContext);
+    const {user} = useContext(UserContext);
 
-    const welcome = `Welcome ${user ? user.email : "" }`
+    const welcome = `Welcome ${user ? user.name : "" }`
     return (
         <div>
         <Sidebar.Pushable as={Segment} style={{minHeight: '100vh'}}>
@@ -36,6 +36,8 @@ function Dashboard() {
                 <Segment basic>
                     <Header as='h3'>Admin Dash</Header>
                     {welcome}
+
+                    {console.log(localStorage.user)}
                 </Segment>
             </Sidebar.Pusher>
         </Sidebar.Pushable>

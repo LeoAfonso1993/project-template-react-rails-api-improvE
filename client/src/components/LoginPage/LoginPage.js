@@ -4,7 +4,7 @@ import { UserContext } from '../../contexts/UserContext';
 
 
 function LoginPage(){
-    const {setUser} = useContext(UserContext);
+    const {setUser, storage, setStorage} = useContext(UserContext);
 
     const defaultForm = {    
         email:"",
@@ -14,6 +14,9 @@ function LoginPage(){
     const [errors, setErrors] = useState([])
     const navigate = useNavigate();
 
+    
+
+
     function handleChange(e){
         const key = e.target.name
         setFormData({
@@ -22,29 +25,33 @@ function LoginPage(){
         })
     }
   
-    function handleSubmit(e){
-        e.preventDefault()
-        fetch('/login',{
+    const handleSubmit = async e => {
+        e.preventDefault();
+        const r = await fetch('/login',{
           method:"POST",
           headers:{
               "Content-Type":"application/json"
           },
           body:JSON.stringify(formData)
         })
-        .then(r=>{
-            if(r.ok)
-                {r.json().then((user)=>{
-                  setUser(user)
-                  if(user.is_admin === true){
-                    navigate("/admindashboard")
-                  } else {
-                    navigate("/mytrainings"); /*Maybe will have to remove push*/
-                  }
-                  setFormData(defaultForm)
-                })}
-            else
-                {r.json().then((e)=>setErrors(e.errors))}
-            })
+
+        if(r.ok)
+            {r.json().then((user)=>{
+              setUser(user)
+              if(user.is_admin === true){
+                navigate("/admindashboard")
+              } else {
+                navigate("/mytrainings"); /*Maybe will have to remove push*/
+              }
+              localStorage.setItem('user', JSON.stringify(user))
+              setFormData(defaultForm)  
+            })}
+
+        else
+            {r.json().then((e)=>setErrors(e.errors))}
+
+ 
+        
     }
   
     return (

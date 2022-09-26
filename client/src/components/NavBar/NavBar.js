@@ -24,6 +24,7 @@ function NavBar() {
         /*.then((response) => response.json())*/
         .then(() => setUser(null))
         .then(() => navigate("/"))
+        .then(() => localStorage.clear())
     }
 
     return (
