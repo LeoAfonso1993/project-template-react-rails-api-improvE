@@ -6,6 +6,8 @@ export const TrainingContext = createContext();
 export function TrainingContextProvider({children}) {
 
     const [categList, setCategList] = useState([]);
+    const [allTrainings, setAllTrainings] = useState([])
+    const [counter, setCounter] = useState(0)
 
     const getCategList = useCallback(async () => {
         const response = await fetch("/allcategories");
@@ -17,8 +19,19 @@ export function TrainingContextProvider({children}) {
         getCategList();
     }, [getCategList])
 
+    const getAllTrainings = useCallback(async () => {
+        const response = await fetch("/trainings");
+        const results = await response.json();
+        setAllTrainings(results);
+    }, []);
+
+    useEffect(() => {
+        getAllTrainings();
+    }, [counter])
+
+
     return (
-        <TrainingContext.Provider value={{categList, setCategList}}>
+        <TrainingContext.Provider value={{categList, setCategList, allTrainings, setAllTrainings, counter, setCounter}}>
             {children}
         </TrainingContext.Provider>
     )

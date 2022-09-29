@@ -3,11 +3,13 @@ import React from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { TrainingContext } from "../../../contexts/TrainingContext";
+import TrainingContainer from "../TrainingContainer/TrainingContainer";
+
 
 
 function NewTrainingForm() {
 
-    const {categList} = useContext(TrainingContext);
+    const {categList, counter, setCounter} = useContext(TrainingContext);
 
     const [catId, setCatID] = useState(1)
     const [newTraining, setNewTraining] = useState({
@@ -51,10 +53,14 @@ function NewTrainingForm() {
         .then((item) => console.log(item))
         .then(() => console.log(trainingData))
         .then(() => {
+            setCounter(counter + 1)
+            console.log(counter)
             setNewTraining({
                 name: ""
             })
         })
+        e.target.reset()
+
     }
 
     return (
@@ -77,6 +83,9 @@ function NewTrainingForm() {
             </Form.Group>
             <Button type="submit" style={{ color: 'white' }}>Create</Button>
         </Form>
+
+        <h3>All Tranings</h3>
+        <TrainingContainer />
         </>
     )
     
