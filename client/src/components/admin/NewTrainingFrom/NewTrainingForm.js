@@ -9,7 +9,7 @@ function NewTrainingForm() {
 
     const {categList} = useContext(TrainingContext);
 
-    const [catId, setCatID] = useState(0)
+    const [catId, setCatID] = useState(1)
     const [newTraining, setNewTraining] = useState({
         name:""
     })

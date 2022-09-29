@@ -5,7 +5,7 @@ export const TrainingContext = createContext();
 
 export function TrainingContextProvider({children}) {
 
-    const [categList, setCategList] = useState({});
+    const [categList, setCategList] = useState([]);
 
     const getCategList = useCallback(async () => {
         const response = await fetch("/allcategories");
