@@ -22,7 +22,6 @@ export function UserContextProvider({children}) {
         return () => {
             abortController.abort();
         }
-        /*.then(() => console.log(user))*/
     }, [])
 
     /*useEffect(() => { ###used this to try to persist login in the front end
