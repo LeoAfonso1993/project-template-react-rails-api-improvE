@@ -8,6 +8,8 @@ export function TrainingContextProvider({children}) {
     const [categList, setCategList] = useState([]);
     const [allTrainings, setAllTrainings] = useState([])
     const [counter, setCounter] = useState(0)
+    const [cardId, setCardId] = useState(0)
+    const [trainingItem, setTrainingItem] = useState("")
 
     const getCategList = useCallback(async () => {
         const response = await fetch("/allcategories");
@@ -31,7 +33,7 @@ export function TrainingContextProvider({children}) {
 
 
     return (
-        <TrainingContext.Provider value={{categList, setCategList, allTrainings, setAllTrainings, counter, setCounter}}>
+        <TrainingContext.Provider value={{categList, setCategList, allTrainings, setAllTrainings, counter, setCounter, cardId, setCardId, trainingItem, setTrainingItem}}>
             {children}
         </TrainingContext.Provider>
     )

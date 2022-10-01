@@ -1,9 +1,8 @@
 class QuizzesController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-    before_action :authorize
 
     def create
-        quiz = Quiz.create(params)
+        quiz = Quiz.create(params.require(:quiz).permit(:question, :correct_answer, :option_2, :option_3, :option_4, :training_id))
         render json: quiz, status: :created
     end
 
@@ -21,7 +20,7 @@ class QuizzesController < ApplicationController
     private
 
     def quiz_params
-        params.permit(:question, :correct_answer, :option_2, :option_3, :option_4)
+        params.permit(:question, :correct_answer, :option_2, :option_3, :option_4, :training_id)
     end
 
     def render_not_found_response

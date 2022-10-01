@@ -4,7 +4,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 import TrainingCards from '../TrainingCards/TrainingCards';
 
 function TrainingContainer() {
-    const {allTrainings, counter, setCounter} = useContext(TrainingContext);
+    const {allTrainings} = useContext(TrainingContext);
 
     const tCards = allTrainings.map((training) => {
         return(

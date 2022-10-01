@@ -2,18 +2,25 @@ import { useContext } from "react"
 import React from "react";
 import { Card, Button } from 'react-bootstrap';
 import { TrainingContext } from "../../../contexts/TrainingContext";
+import { useNavigate } from 'react-router-dom'; 
 
 
 
 function TrainingCards({name, categ, id}){
 
-    const {counter, setCounter} = useContext(TrainingContext);
+    const {counter, setCounter, cardId, setCardId} = useContext(TrainingContext);
+    const navigate = useNavigate();
 
     function handleDelete() {
         fetch(`/trainings/${id}`, {
             method: "DELETE",
         })
         .then(() => setCounter(counter + 1))
+    }
+
+    function handleClick() {
+        setCardId(id)
+        navigate("/trainingpage")
     }
 
     return (
@@ -26,6 +33,7 @@ function TrainingCards({name, categ, id}){
                -Id-{id}
             </Card.Text>
             <Button onClick={handleDelete}>delete</Button>
+            <Button onClick={handleClick}>Open and Edit</Button>
           </Card.Body>
         </Card>
       );

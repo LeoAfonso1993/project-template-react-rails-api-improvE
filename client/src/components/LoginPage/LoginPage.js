@@ -46,10 +46,7 @@ function LoginPage(){
             })}
 
         else
-            {r.json().then((e)=>setErrors(e.errors))}
-
- 
-        
+            {r.json().then((e)=>setErrors(e.errors))} 
     }
   
     return (

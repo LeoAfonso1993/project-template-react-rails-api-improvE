@@ -54,7 +54,6 @@ function NewTrainingForm() {
         .then(() => console.log(trainingData))
         .then(() => {
             setCounter(counter + 1)
-            console.log(counter)
             setNewTraining({
                 name: ""
             })

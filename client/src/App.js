@@ -8,6 +8,7 @@ import { UserContextProvider } from "./contexts/UserContext";
 import NewTrainingForm from "./components/admin/NewTrainingFrom/NewTrainingForm";
 import {TrainingContextProvider} from "./contexts/TrainingContext";
 import MyTraining from "./components/employee/MyTraining/MyTraining";
+import TrainingPage from "./components/admin/TrainingPage/TrainingPage";
 
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
                 <Route path="/login" element={<LoginPage/>}/>
                 <Route path="/mytrainings" element={<MyTraining/>}/>
                 <Route path="/admindashboard" element={<AdminDashboard/>}/>
-                <Route path="/newtraining" element={<NewTrainingForm/>}/>             
+                <Route path="/newtraining" element={<NewTrainingForm/>}/> 
+                <Route path="/trainingpage" element={<TrainingPage/>}/>            
               </Routes>
             </div>
         </div>
