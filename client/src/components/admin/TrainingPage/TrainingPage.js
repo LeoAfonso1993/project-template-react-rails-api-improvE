@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { TrainingContext } from "../../../contexts/TrainingContext";
 import { Button, Form ,Select } from 'semantic-ui-react'
 import NewQuiz from "../NewQuiz/NewQuiz";
+import NewText from "../NewText/NewText";
+import NewVideo from "../NewVideo/NewVideo";
 
 const options = [
     { key: 'qz', text: 'Quiz', value: 'quiz' },
-    { key: 'qn', text: 'Question', value: 'question' },
     { key: 't', text: 'Text', value: 'text' },
     { key: 'p', text: 'Picture', value: 'picture' },
     { key: 'v', text: 'Video', value: 'video' }
@@ -20,14 +21,12 @@ function TrainingPage() {
     function itemsMenu(cb){
         if (cb === "quiz"){
             return <NewQuiz />
-        }else if (cb === "question") {
-            return ("Hello")
         }else if (cb === "text") {
-            return ("Aloha")
+            return <NewText /> 
         } else if (cb === 'picture') {
             return ("Oi")
         } else if (cb === 'video') {
-            return ("Video")
+            return <NewVideo />
         }
     }
 

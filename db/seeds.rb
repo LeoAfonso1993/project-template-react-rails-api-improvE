@@ -15,3 +15,4 @@ user2 = User.create(name: 'leo', email: 'leo@leo.com', password: 'leo2022', pass
 category1 = Category.create(name: 'Safety')
 category2 = Category.create(name: 'Technical')
 category3 = Category.create(name: 'On-board')
+
