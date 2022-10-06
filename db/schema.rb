@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_26_205224) do
+ActiveRecord::Schema.define(version: 2022_10_02_194053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,19 @@ ActiveRecord::Schema.define(version: 2022_09_26_205224) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["training_id"], name: "index_open_questions_on_training_id"
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.bigint "image_file_size"
+    t.datetime "image_updated_at"
+    t.string "title"
+    t.string "description"
+    t.bigint "training_id", null: false
+    t.index ["training_id"], name: "index_pictures_on_training_id"
   end
 
   create_table "quizzes", force: :cascade do |t|
@@ -96,6 +109,7 @@ ActiveRecord::Schema.define(version: 2022_09_26_205224) do
   end
 
   add_foreign_key "open_questions", "trainings"
+  add_foreign_key "pictures", "trainings"
   add_foreign_key "quizzes", "trainings"
   add_foreign_key "texts", "trainings"
   add_foreign_key "trainings", "categories"

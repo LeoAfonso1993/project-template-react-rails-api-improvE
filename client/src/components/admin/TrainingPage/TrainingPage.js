@@ -4,6 +4,7 @@ import { Button, Form ,Select } from 'semantic-ui-react'
 import NewQuiz from "../NewQuiz/NewQuiz";
 import NewText from "../NewText/NewText";
 import NewVideo from "../NewVideo/NewVideo";
+import NewPicture from "../NewPicture/NewPicture";
 
 const options = [
     { key: 'qz', text: 'Quiz', value: 'quiz' },
@@ -24,7 +25,7 @@ function TrainingPage() {
         }else if (cb === "text") {
             return <NewText /> 
         } else if (cb === 'picture') {
-            return ("Oi")
+            return <NewPicture />
         } else if (cb === 'video') {
             return <NewVideo />
         }
