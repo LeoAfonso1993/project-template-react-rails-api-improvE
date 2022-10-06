@@ -46,15 +46,7 @@ function NewPicture() {
       .catch((err) => console.log(err));
       
     
-    //   const parser = new DOMParser()
-    //   const uploadUrl = parser.parseFromString(xml, 'text/xml')
-    //   const urlLocation = uploadUrl.getElementsByTagName('Location')[0];
-    //   const errorNode = uploadUrl.querySelector('parsererror');
-    //     if (errorNode) {
-    //         console.log(errorNode)
-    //     }
 
-    //     console.log(uploadUrl)
     };
   
     useEffect(() =>{
@@ -95,7 +87,16 @@ function NewPicture() {
 
 
 
+    //   const parser = new DOMParser()
+    //   const uploadUrl = parser.parseFromString(xml, 'text/xml')
+    //   const urlLocation = uploadUrl.getElementsByTagName('Location')[0];
+    //   const errorNode = uploadUrl.querySelector('parsererror');
+    //     if (errorNode) {
+    //         console.log(errorNode)
+    //     }
 
+    //     console.log(uploadUrl)
+    //tests i was doing before
 
 
 
