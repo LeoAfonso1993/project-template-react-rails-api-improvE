@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext} from 'react';
 import { TrainingContext} from '../../../contexts/TrainingContext';
 import { Row, Col, Container } from 'react-bootstrap';
 import TrainingCards from '../TrainingCards/TrainingCards';

@@ -11,6 +11,30 @@ class TrainingsController < ApplicationController
         render json: training
     end
 
+    def show_items_quiz
+        training = Training.find(params[:id])
+        quiz = training.quizzes
+        render json: quiz
+    end
+
+    def show_items_text
+        training = Training.find(params[:id])
+        text = training.texts
+        render json: text
+    end
+
+    def show_items_video
+        training = Training.find(params[:id])
+        video = training.videos
+        render json: video
+    end
+
+    def show_items_picture
+        training = Training.find(params[:id])
+        picture = training.pictures
+        render json: picture
+    end
+
     def create
         training = Training.create(training_params)
         render json: training, status: :created

@@ -8,8 +8,9 @@ import { useNavigate } from 'react-router-dom';
 
 function TrainingCards({name, categ, id}){
 
-    const {counter, setCounter, cardId, setCardId} = useContext(TrainingContext);
+    const {counter, setCounter, setCardId, getTrainingQuizzes, cardId} = useContext(TrainingContext);
     const navigate = useNavigate();
+
 
     function handleDelete() {
         fetch(`/trainings/${id}`, {
@@ -20,6 +21,7 @@ function TrainingCards({name, categ, id}){
 
     function handleClick() {
         setCardId(id)
+        getTrainingQuizzes(cardId)
         navigate("/trainingpage")
     }
 

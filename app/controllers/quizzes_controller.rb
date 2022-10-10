@@ -24,7 +24,7 @@ class QuizzesController < ApplicationController
     def destroy
         quiz = Quiz.find(params[:id])
         quiz.destroy
-        render json: quiz
+        head :no_content
     end
 
     private

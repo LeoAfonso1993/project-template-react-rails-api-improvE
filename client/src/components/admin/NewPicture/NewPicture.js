@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from "react";
-import { TrainingContext } from "../../../contexts/TrainingContext";
+import { useEffect, useState } from "react";
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
 import {
@@ -8,7 +7,8 @@ import {
   } from 'semantic-ui-react'
 
 
-function NewPicture() {
+function NewPicture({setPictureData, pictureData}) {
+
     const[isLoading, setIsLoading] = useState(false)
     const[urlData, setUrlData] = useState([])
     const[image, setImage] = useState();
@@ -57,6 +57,11 @@ function NewPicture() {
         if (urlLocation){
             console.log(urlLocation.innerHTML)
             setIsLoading(false)
+            //setPicUrl(urlLocation.innerHTML)
+            setPictureData({
+              ...pictureData,
+              url: urlLocation.innerHTML
+          })
             setLoadButton(<Icon name="check"/>)
         }else{
             console.log("")

@@ -28,7 +28,7 @@ class VideosController < ApplicationController
     end
 
     def destroy
-        video = Vext.find(params[:id])
+        video = Video.find(params[:id])
         video.destroy
         head :no_content
     end
