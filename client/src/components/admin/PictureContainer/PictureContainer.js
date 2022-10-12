@@ -1,6 +1,7 @@
 import React from "react";
 import NewPicture from "../NewPicture/NewPicture";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import { TrainingContext } from "../../../contexts/TrainingContext";
 import {
     Button,
@@ -12,7 +13,7 @@ import {
 function PictureContainer() {
 
     const {cardId} = useContext(TrainingContext);
-    const {itemsCollection, setItemsCollction} = useState([])
+    const navigate = useNavigate();
 
     const defaultPicture = {
         title:"",
@@ -46,6 +47,7 @@ function PictureContainer() {
         .then((item) => console.log(item))
         .then(() => setPictureData(defaultPicture))
         e.target.reset()
+        navigate("/newtraining")
     }
 
 
@@ -77,7 +79,7 @@ function PictureContainer() {
 
                 </Form.Group>
 
-                <Form.Field type="submit" control={Button}>Create Quiz</Form.Field>
+                <Form.Field type="submit" control={Button}>Add Picture</Form.Field>
             </Form>
         
         </>

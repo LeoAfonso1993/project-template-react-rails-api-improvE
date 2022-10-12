@@ -67,7 +67,7 @@ function NewText(){
                 </Form.Group>
 
 
-                <Form.Field type="submit" control={Button}>Create Quiz</Form.Field>
+                <Form.Field type="submit" control={Button}>Create Text</Form.Field>
             </Form>
         </>
     )

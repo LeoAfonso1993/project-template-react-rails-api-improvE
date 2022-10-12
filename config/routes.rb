@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   get 's3/direct_post'
   resources :trainings
+
+  get "/allusers", to: "users#index"
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
+  delete "/deleteuser/:id", to: "users#destroy"
+  patch "/upedateuserpermission/:id", to:"users#update"
   
   get "/alltrainings", to: "trainings#index"
   get "/allcategories", to: "categories#index"
@@ -31,7 +35,6 @@ Rails.application.routes.draw do
   delete "/picture_delete/:id", to: "pictures#destroy"
 
   post "/s3/direct_post", to: "s3_controller#direct_post"
-
-  
+ 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

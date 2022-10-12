@@ -1,10 +1,13 @@
 import { createContext } from "react";
 import { useState, useEffect } from "react";
+import { useCallback } from "react";
 
 export const UserContext = createContext();
 
 export function UserContextProvider({children}) {
     const [user, setUser] = useState(null)
+    const [counter, setCounter] = useState(1)
+    const [userList, setUserList] = useState([])
       
 
     useEffect(()=>{
@@ -24,16 +27,20 @@ export function UserContextProvider({children}) {
         }
     }, [])
 
-    /*useEffect(() => { ###used this to try to persist login in the front end
-        const loggedInUser = localStorage.getItem("user");
-        if (loggedInUser) {
-          const foundUser = JSON.parse(loggedInUser);
-          setUser(foundUser);
-        }
-      }, []);*/
 
+    const getAllUsers = useCallback(async () => {
+        const response = await fetch("/allusers");
+        const results = await response.json();
+        setUserList(results);
+    }, []);
+
+    useEffect(() => {
+        getAllUsers()
+    }, [counter])
+
+    
     return (
-        <UserContext.Provider value={{user, setUser}}>
+        <UserContext.Provider value={{user, setUser, userList, setCounter, counter}}>
             {children}
         </UserContext.Provider>
     )

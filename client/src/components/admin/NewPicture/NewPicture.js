@@ -44,9 +44,8 @@ function NewPicture({setPictureData, pictureData}) {
       }).then(res => res.text())
       .then((data) => setUrlData(data))
       .catch((err) => console.log(err));
-      
-    
 
+      e.target.value = null
     };
   
     useEffect(() =>{
@@ -77,7 +76,7 @@ function NewPicture({setPictureData, pictureData}) {
 
             <Form.Field type="submit" control={Button}>{loadButton}</Form.Field>
           </Form>
-          <h3>{isLoading? "Loading" : ""}</h3>
+          <h3>{isLoading? "Loading..." : ""}</h3>
         </>
       );
       
@@ -85,24 +84,6 @@ function NewPicture({setPictureData, pictureData}) {
   }
   
   export default NewPicture;
-
-
-
-
-
-
-
-    //   const parser = new DOMParser()
-    //   const uploadUrl = parser.parseFromString(xml, 'text/xml')
-    //   const urlLocation = uploadUrl.getElementsByTagName('Location')[0];
-    //   const errorNode = uploadUrl.querySelector('parsererror');
-    //     if (errorNode) {
-    //         console.log(errorNode)
-    //     }
-
-    //     console.log(uploadUrl)
-    //tests i was doing before
-
 
 
 

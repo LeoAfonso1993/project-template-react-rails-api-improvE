@@ -10,6 +10,7 @@ import ItemQuiz from "../ItemQuiz/ItemQuiz";
 import ItemText from "../ItemText/ItemText";
 import ItemVideo from "../ItemVideo/ItemVideo";
 import ItemPicture from "../ItemPicture/ItemPicture";
+import { useEffect } from "react";
 
 
 
@@ -36,6 +37,10 @@ function TrainingPage() {
             return <NewVideo />
         }
     }
+
+    useEffect(() => {
+        handleClick()
+    }, [])
 
     function handleClick() {
         getTrainingQuizzes(cardId)

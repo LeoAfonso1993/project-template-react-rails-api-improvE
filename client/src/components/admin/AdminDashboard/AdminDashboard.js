@@ -9,10 +9,19 @@ function Dashboard(){
     function handleClick() {
         navigate("/newtraining")
     }
+    function handleClickUsers(){
+        navigate("/adminuserpage")
+    }
+
+    function handleClickAssignments(){
+        navigate("/assignments")
+    }
 
     return (
         <>
-            <button onClick={handleClick}>New Training</button>
+            <button onClick={handleClick}>Trainings</button>
+            <button onClick={handleClickUsers}>Users</button>
+            <button onClick={handleClickAssignments}>Assignments</button>
         </>
     )
 }
