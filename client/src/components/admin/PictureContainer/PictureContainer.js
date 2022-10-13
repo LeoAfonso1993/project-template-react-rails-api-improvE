@@ -1,6 +1,6 @@
 import React from "react";
 import NewPicture from "../NewPicture/NewPicture";
-import { useContext, useState, useEffect} from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TrainingContext } from "../../../contexts/TrainingContext";
 import {

@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { TrainingContext } from "../../../contexts/TrainingContext";
 import { Card, Button } from 'react-bootstrap';
 

@@ -35,6 +35,12 @@ class TrainingsController < ApplicationController
         render json: picture
     end
 
+    def show_users
+        training = Training.find(params[:id])
+        user = training.users
+        render json: user
+    end
+
     def create
         training = Training.create(training_params)
         render json: training, status: :created

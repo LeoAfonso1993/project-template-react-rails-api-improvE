@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/show_items_text/:id", to: "trainings#show_items_text"
   get "/show_items_video/:id", to: "trainings#show_items_video"
   get "/show_items_picture/:id", to: "trainings#show_items_picture"
+  get "/show_users/:id", to: "trainings#show_users"
   
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
@@ -35,6 +36,11 @@ Rails.application.routes.draw do
   delete "/picture_delete/:id", to: "pictures#destroy"
 
   post "/s3/direct_post", to: "s3_controller#direct_post"
+
+  post "/usertraining", to: "user_trainings#create"
+  get "/allusertraining", to: "user_trainings#index"
+  get "/showusertraining/:id", to: "user_trainings#show"
+  delete "/deleteassignment/:id", to: "user_trainings#destroy"
  
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

@@ -108,7 +108,6 @@ function TrainingPage() {
 
     return(
         <>
-            <h1>{cardId}</h1>
             <Form>
                  <Form.Group widths='equal'>
 

@@ -1,6 +1,7 @@
 import { createContext, useCallback } from "react";
 import { useState, useEffect } from "react";
 
+
 export const TrainingContext = createContext();
 
 export function TrainingContextProvider({children}) {
@@ -15,6 +16,9 @@ export function TrainingContextProvider({children}) {
     const [textList, setTextList] = useState([])
     const [videoList, setVideoList] = useState([])
     const [pictureList, setPictureList] = useState([])
+    const [trainingUsers, setTrainingUsers] = useState([])
+    const [allAssignments, setAllAssignments] = useState([])
+    
     
 
     const getCategList = useCallback(async () => {
@@ -35,6 +39,17 @@ export function TrainingContextProvider({children}) {
 
     useEffect(() => {
         getAllTrainings();
+    }, [counter])
+
+
+    const getAllAssignments = useCallback(async () => {
+        const response = await fetch("/allusertraining");
+        const results = await response.json();
+        setAllAssignments(results);
+    }, []);
+
+    useEffect(() => {
+        getAllAssignments();
     }, [counter])
 
 
@@ -86,8 +101,9 @@ export function TrainingContextProvider({children}) {
         })
     }
 
+
     return (
-        <TrainingContext.Provider value={{categList, setCategList, allTrainings, setAllTrainings, counter, setCounter, cardId, setCardId, trainingItem, setTrainingItem, picUrl, setPicUrl, quizList, getTrainingQuizzes, textList, getTrainingTexts, videoList, getTrainingVideos, pictureList, getTrainingPictures}}>
+        <TrainingContext.Provider value={{categList, setCategList, allTrainings, setAllTrainings, counter, setCounter, cardId, setCardId, trainingItem, setTrainingItem, picUrl, setPicUrl, quizList, getTrainingQuizzes, textList, getTrainingTexts, videoList, getTrainingVideos, pictureList, getTrainingPictures, trainingUsers, setTrainingUsers, allAssignments}}>
             {children}
         </TrainingContext.Provider>
     )

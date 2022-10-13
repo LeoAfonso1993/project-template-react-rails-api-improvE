@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { TrainingContext } from "../../../contexts/TrainingContext";
-import React, { Component } from 'react'
 import {
   Button,
   Form,
@@ -9,7 +8,7 @@ import {
 
 
 function NewQuiz() {
-    const {trainingItem, setTrainingItem, cardId, setCardId} = useContext(TrainingContext);
+    const { cardId } = useContext(TrainingContext);
 
     const defaultQuiz = {    
         question:"",

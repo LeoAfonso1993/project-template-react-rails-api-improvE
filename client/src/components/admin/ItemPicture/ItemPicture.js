@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext, useEffect } from "react";
+import { useContext} from "react";
 import { TrainingContext } from "../../../contexts/TrainingContext";
 import { Card, Button } from 'react-bootstrap';
 
@@ -21,7 +21,7 @@ function ItemPicture({name, id, answer, date}) {
             <Card.Text> 
                -date{date} -- {id}
                {console.log(pictureList)}
-               <img src={answer}></img>
+               <img alt="" src={answer}></img>
             </Card.Text>
             <Button onClick={handleDelete}>delete</Button>
           </Card.Body>

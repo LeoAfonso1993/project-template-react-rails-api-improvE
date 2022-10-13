@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react'
+import { Form, Input, Button } from 'semantic-ui-react'
 import UserSection from '../UserSection/UserSection'
 import { useContext } from 'react'
 import { UserContext } from '../../../contexts/UserContext'
