@@ -96,7 +96,8 @@ function Assignments(){
         <>
             <Form onSubmit={handleSubmit}>
                 <Form.Group widths='equal'>
-                    <select onChange={handleChangeTraining}>
+                    <select defaultValue="" onChange={handleChangeTraining}>
+                    <option disabled={true} value="">Select Training</option>
                         {displayTraining}
                     </select>
                 </Form.Group>
