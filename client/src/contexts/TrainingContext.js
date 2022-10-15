@@ -18,6 +18,8 @@ export function TrainingContextProvider({children}) {
     const [pictureList, setPictureList] = useState([])
     const [trainingUsers, setTrainingUsers] = useState([])
     const [allAssignments, setAllAssignments] = useState([])
+    const [displayT, setDisplayT] = useState([])
+    const [score, setScore] = useState(0)
     
     
 
@@ -101,9 +103,27 @@ export function TrainingContextProvider({children}) {
         })
     }
 
+    function displayMyTrainings(id){
+        fetch(`show_all_trainings/${id}`)
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.error === "Training not found"){
+                console.log("training not found")
+            } else {
+                data.sort((a,b) => {
+                    a= (new Date(a.created_at)).getTime();
+                    b= (new Date(b.created_at)).getTime();
+                    return a-b;
+                });
+                
+                setDisplayT(data)
+                };
+        })
+      }
+
 
     return (
-        <TrainingContext.Provider value={{categList, setCategList, allTrainings, setAllTrainings, counter, setCounter, cardId, setCardId, trainingItem, setTrainingItem, picUrl, setPicUrl, quizList, getTrainingQuizzes, textList, getTrainingTexts, videoList, getTrainingVideos, pictureList, getTrainingPictures, trainingUsers, setTrainingUsers, allAssignments}}>
+        <TrainingContext.Provider value={{categList, setCategList, allTrainings, setAllTrainings, counter, setCounter, cardId, setCardId, trainingItem, setTrainingItem, picUrl, setPicUrl, quizList, getTrainingQuizzes, textList, getTrainingTexts, videoList, getTrainingVideos, pictureList, getTrainingPictures, trainingUsers, setTrainingUsers, allAssignments, displayMyTrainings, displayT, setDisplayT, score, setScore}}>
             {children}
         </TrainingContext.Provider>
     )

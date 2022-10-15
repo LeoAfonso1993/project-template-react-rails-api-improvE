@@ -35,6 +35,27 @@ class TrainingsController < ApplicationController
         render json: picture
     end
 
+    def show_all_trainings
+        data=[]
+        training = Training.find(params[:id])
+        quiz = training.quizzes.each do |q|
+            data << q.attributes.merge({"type" => "quiz"})
+            end
+
+        text = training.texts.each do |txt|
+            data << txt.attributes.merge({"type" => "text"})
+            end
+
+        video = training.videos.each do |t|
+            data << t.attributes.merge({"type" => "video"})
+            end
+
+        picture = training.pictures.each do |p|
+            data << p.attributes.merge({"type" => "picture"})
+            end
+        render json: data
+    end
+
     def show_users
         training = Training.find(params[:id])
         user = training.users

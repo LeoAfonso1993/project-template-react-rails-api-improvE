@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
   delete "/deleteuser/:id", to: "users#destroy"
   patch "/upedateuserpermission/:id", to:"users#update"
+  get "/traininguser/:id", to:"users#show_training"
+  
   
   get "/alltrainings", to: "trainings#index"
   get "/allcategories", to: "categories#index"
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
   get "/show_items_video/:id", to: "trainings#show_items_video"
   get "/show_items_picture/:id", to: "trainings#show_items_picture"
   get "/show_users/:id", to: "trainings#show_users"
+  get "/show_all_trainings/:id", to: "trainings#show_all_trainings"
   
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
@@ -41,6 +44,9 @@ Rails.application.routes.draw do
   get "/allusertraining", to: "user_trainings#index"
   get "/showusertraining/:id", to: "user_trainings#show"
   delete "/deleteassignment/:id", to: "user_trainings#destroy"
+
+
+  
  
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

@@ -8,6 +8,7 @@ export function UserContextProvider({children}) {
     const [user, setUser] = useState(null)
     const [counter, setCounter] = useState(1)
     const [userList, setUserList] = useState([])
+    const [trainingData, setTrainingData] = useState([])
       
 
     useEffect(()=>{
@@ -37,10 +38,24 @@ export function UserContextProvider({children}) {
     useEffect(() => {
         getAllUsers()
     }, [counter])
+    
+    
+    function showTrainings(){
+        if(user != null){
+            fetch(`traininguser/${user.id}`)
+            .then((response) => response.json())
+            .then((data) => setTrainingData(data))
+        }else{
+            console.log('no trainings found')
+        }
+    }
 
+    useEffect(() => {
+        showTrainings()
+    }, [counter])
     
     return (
-        <UserContext.Provider value={{user, setUser, userList, setCounter, counter}}>
+        <UserContext.Provider value={{user, setUser, userList, setCounter, counter, trainingData, setTrainingData}}>
             {children}
         </UserContext.Provider>
     )

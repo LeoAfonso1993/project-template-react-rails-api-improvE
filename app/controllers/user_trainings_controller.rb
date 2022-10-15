@@ -22,7 +22,9 @@ class UserTrainingsController < ApplicationController
         assignment.destroy
         head :no_content
     end
+
     
+
     private
     
     def user_training__params

@@ -32,6 +32,12 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def show_training
+        user = User.find(params[:id])
+        training_user = user.trainings
+        render json: training_user
+    end
+
     private
     
     def user_params
