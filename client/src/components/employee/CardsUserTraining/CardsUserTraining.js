@@ -7,14 +7,9 @@ import UserQuiz from "../UserQuiz/UserQuiz";
 import UserText from "../UserText/UserText"
 import UserVideo from "../UserVideo/UserVideo";
 import UserPicture from "../UserPicture/UserPicture";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function CardsUserTraining({id, header, content, type, score, setScore}){
-
-    function handleClick(e){
-        console.log(e.target.value)
-        // redirect(e.target.value)
-    }
+function CardsUserTraining({id, header, content, type, score, setScore, questionNumber, setQuestionNumber}){
 
     const myArray = [content.correct_answer, content.option_2, content.option_3, content.option_4]
     var newArray = [];
@@ -39,7 +34,7 @@ function CardsUserTraining({id, header, content, type, score, setScore}){
                 <Card.Body>
                 <Card.Text>
                 <br/>
-                    {type === "quiz" ? <UserQuiz id={id} header={header} newArray={newArray} content={content} type={type} setScore={setScore} score={score}/> : console.log("")}
+                    {type === "quiz" ? <UserQuiz id={id} questionNumber={questionNumber} setQuestionNumber={setQuestionNumber} header={header} newArray={newArray} content={content} type={type} setScore={setScore} score={score}/> : console.log("")}
                     {type === "text" ? <UserText id={id} header={header} newArray={newArray} content={content} type={type} /> : console.log("")}
                     {type === "video" ? <UserVideo id={id} header={header} content={content} type={type} /> : console.log("")}
                     {type === "picture" ? <UserPicture id={id} header={header} content={content} /> : console.log("")}

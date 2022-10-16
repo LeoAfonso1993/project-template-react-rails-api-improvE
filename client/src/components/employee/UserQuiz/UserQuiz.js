@@ -4,7 +4,7 @@ import { UserContext } from "../../../contexts/UserContext";
 import { Form, Checkbox } from 'semantic-ui-react'
 import { useEffect, useState } from "react";
 
-function UserQuiz({content, type, id, header, score, setScore, newArray}) {
+function UserQuiz({content, type, id, header, score, setScore, newArray, questionNumber, setQuestionNumber}) {
 
     const [answerSubmit, setAnswerSubmit] = useState(false)
     const [answerData, setAnswerData] = useState("")
@@ -26,6 +26,7 @@ function UserQuiz({content, type, id, header, score, setScore, newArray}) {
         if(answerData === content.correct_answer){
             setScore(score + 1)
         }
+        setQuestionNumber(questionNumber +1)
         setAnswerSubmit(true)
     }
 

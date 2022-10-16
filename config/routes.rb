@@ -45,6 +45,9 @@ Rails.application.routes.draw do
   get "/showusertraining/:id", to: "user_trainings#show"
   delete "/deleteassignment/:id", to: "user_trainings#destroy"
 
+  get "/allscores", to: "scores#index"
+  post "/newscore", to: "scores#create"
+
 
   
  

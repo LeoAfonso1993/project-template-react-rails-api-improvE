@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_02_035238) do
+ActiveRecord::Schema.define(version: 2022_10_15_033332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,19 @@ ActiveRecord::Schema.define(version: 2022_10_02_035238) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["training_id"], name: "index_quizzes_on_training_id"
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.string "user_name"
+    t.integer "number_of_questions"
+    t.integer "points"
+    t.boolean "completed"
+    t.bigint "training_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["training_id"], name: "index_scores_on_training_id"
+    t.index ["user_id"], name: "index_scores_on_user_id"
   end
 
   create_table "texts", force: :cascade do |t|
@@ -112,6 +125,8 @@ ActiveRecord::Schema.define(version: 2022_10_02_035238) do
   add_foreign_key "open_questions", "trainings"
   add_foreign_key "pictures", "trainings"
   add_foreign_key "quizzes", "trainings"
+  add_foreign_key "scores", "trainings"
+  add_foreign_key "scores", "users"
   add_foreign_key "texts", "trainings"
   add_foreign_key "trainings", "categories"
   add_foreign_key "user_trainings", "trainings"

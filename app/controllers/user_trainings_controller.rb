@@ -27,7 +27,7 @@ class UserTrainingsController < ApplicationController
 
     private
     
-    def user_training__params
+    def user_training_params
         params.permit(:user_id, :training_id)
     end
 

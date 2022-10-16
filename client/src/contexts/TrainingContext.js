@@ -20,8 +20,8 @@ export function TrainingContextProvider({children}) {
     const [allAssignments, setAllAssignments] = useState([])
     const [displayT, setDisplayT] = useState([])
     const [score, setScore] = useState(0)
-    
-    
+    const [trainingId, setTrainingId] = useState(0)
+     
 
     const getCategList = useCallback(async () => {
         const response = await fetch("/allcategories");
@@ -119,11 +119,10 @@ export function TrainingContextProvider({children}) {
                 setDisplayT(data)
                 };
         })
-      }
-
+    }
 
     return (
-        <TrainingContext.Provider value={{categList, setCategList, allTrainings, setAllTrainings, counter, setCounter, cardId, setCardId, trainingItem, setTrainingItem, picUrl, setPicUrl, quizList, getTrainingQuizzes, textList, getTrainingTexts, videoList, getTrainingVideos, pictureList, getTrainingPictures, trainingUsers, setTrainingUsers, allAssignments, displayMyTrainings, displayT, setDisplayT, score, setScore}}>
+        <TrainingContext.Provider value={{categList, trainingId, setTrainingId, setCategList, allTrainings, setAllTrainings, counter, setCounter, cardId, setCardId, trainingItem, setTrainingItem, picUrl, setPicUrl, quizList, getTrainingQuizzes, textList, getTrainingTexts, videoList, getTrainingVideos, pictureList, getTrainingPictures, trainingUsers, setTrainingUsers, allAssignments, displayMyTrainings, displayT, setDisplayT, score, setScore}}>
             {children}
         </TrainingContext.Provider>
     )

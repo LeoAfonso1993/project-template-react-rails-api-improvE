@@ -31,7 +31,8 @@ function App() {
                 <Route path="/trainingpage" element={<TrainingPage/>}/>
                 <Route path="/adminuserpage" element={<UserContainer/>}/>
                 <Route path="/assignments" element={<Assignments/>}/>
-                <Route path="/usertrainingpage" element={<UserTrainingPage/>}/>                       
+                <Route path="/usertrainingpage" element={<UserTrainingPage/>}/>
+                <Route path="/mytrainings" element={<MyTraining/>}/>                       
               </Routes>
             </div>
         </div>

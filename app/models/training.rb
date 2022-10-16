@@ -6,5 +6,6 @@ class Training < ApplicationRecord
     has_many :texts, dependent: :destroy
     has_many :videos, dependent: :destroy
     has_many :pictures, dependent: :destroy
+    has_many :scores
 
 end

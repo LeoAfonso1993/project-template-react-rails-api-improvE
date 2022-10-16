@@ -8,7 +8,7 @@ import { useEffect } from "react";
 function UserTrainingCards({id, name}){
   const navigate = useNavigate();
 
-  const{displayMyTrainings} = useContext(TrainingContext)
+  const{displayMyTrainings, trainingId, setTrainingId} = useContext(TrainingContext)
 
   useEffect(() => {
     displayMyTrainings(id)
@@ -16,12 +16,13 @@ function UserTrainingCards({id, name}){
 
   function handleClick(){
     displayMyTrainings(id)
+    setTrainingId(id)
     navigate("/usertrainingpage")
   }
 
   return (
     <Card>
-      <Card.Header as="h5"><i>{name}</i></Card.Header>
+      <Card.Header as="h5"><i>{name}{id}</i></Card.Header>
       <Card.Body>
         <Card.Title></Card.Title>
         <Card.Text>
