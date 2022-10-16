@@ -60,12 +60,11 @@ function UserTrainingPage(){
         })
         .then((response) => response.json())
         .then((data) => {
-            window.alert("Your training was completed succefully")
+            //window.alert("Your training was completed succefully")
             console.log(data)
         })
+        .then(() => navigate("/mytrainings"))
         .catch((err) => console.log(err))
-
-        navigate("/mytrainings")
     }
 
 
