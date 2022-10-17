@@ -3,7 +3,8 @@ import React from 'react';
 import { Icon } from 'semantic-ui-react';
 import {
     Button,
-    Form
+    Form,
+    Loader
   } from 'semantic-ui-react'
 
 
@@ -74,9 +75,9 @@ function NewPicture({setPictureData, pictureData}) {
             <input type="file" name="image id="image onChange={onChange}></input>
              {/* {image && <img src={image} alt="The current file" />} */} 
 
-            <Form.Field type="submit" control={Button}>{loadButton}</Form.Field>
+            <Form.Field type="submit" control={Button}>&nbsp;&nbsp;&nbsp;{loadButton}</Form.Field>
           </Form>
-          <h3>{isLoading? "Loading..." : ""}</h3>
+          <h3>{isLoading? <Loader active inline='centered' /> : ""}</h3>
         </>
       );
       

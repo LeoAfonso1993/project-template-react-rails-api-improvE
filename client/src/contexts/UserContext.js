@@ -9,7 +9,17 @@ export function UserContextProvider({children}) {
     const [counter, setCounter] = useState(1)
     const [userList, setUserList] = useState([])
     const [trainingData, setTrainingData] = useState([])
+    const [currentUser, setCurrentUser] = useState([])
       
+
+    function json2array(json){
+        var result = [];
+        var keys = Object.keys(json);
+        keys.forEach(function(key){
+            result.push(json[key]);
+        });
+        return result;
+    }
 
     useEffect(()=>{
         let abortController = new AbortController();
@@ -32,7 +42,7 @@ export function UserContextProvider({children}) {
     const getAllUsers = useCallback(async () => {
         const response = await fetch("/allusers");
         const results = await response.json();
-        setUserList(results);
+        setUserList(json2array(results));
     }, []);
 
     useEffect(() => {
@@ -55,7 +65,7 @@ export function UserContextProvider({children}) {
     }, [counter])
     
     return (
-        <UserContext.Provider value={{user, setUser, userList, setCounter, counter, trainingData, setTrainingData}}>
+        <UserContext.Provider value={{user, setUser, userList, setCounter, counter, trainingData, setTrainingData, currentUser, setCurrentUser, getAllUsers}}>
             {children}
         </UserContext.Provider>
     )

@@ -22,9 +22,8 @@ function UserTrainingCards({id, name}){
 
   return (
     <Card>
-      <Card.Header as="h5"><i>{name}{id}</i></Card.Header>
       <Card.Body>
-        <Card.Title></Card.Title>
+        <Card.Title>{name}</Card.Title>
         <Card.Text>
         </Card.Text>
         <Button onClick={handleClick}>Start Training</Button>

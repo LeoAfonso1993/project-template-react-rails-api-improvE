@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { TrainingContext } from "../../../contexts/TrainingContext";
-import { Form ,Select } from 'semantic-ui-react'
+import { Form ,Select, Grid, Container, Button, Icon, Segment, Divider } from 'semantic-ui-react'
 import NewQuiz from "../NewQuiz/NewQuiz";
 import NewText from "../NewText/NewText";
 import NewVideo from "../NewVideo/NewVideo";
 import PictureContainer from "../PictureContainer/PictureContainer";
-import { Row, Col, Container } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
 import ItemQuiz from "../ItemQuiz/ItemQuiz";
 import ItemText from "../ItemText/ItemText";
 import ItemVideo from "../ItemVideo/ItemVideo";
@@ -22,7 +22,7 @@ const options = [
   ]
 
 function TrainingPage() {
-    const {trainingItem, setTrainingItem, cardId, quizList, textList, videoList, getTrainingQuizzes, getTrainingTexts, getTrainingVideos, pictureList, getTrainingPictures} = useContext(TrainingContext);
+    const {trainingItem, setTrainingItem, cardId, quizList, textList, videoList, getTrainingQuizzes, getTrainingTexts, getTrainingVideos, pictureList, getTrainingPictures, displayT} = useContext(TrainingContext);
 
     const handleChange = (e, { value }) => setTrainingItem(value)
 
@@ -48,6 +48,7 @@ function TrainingPage() {
         getTrainingVideos(cardId)
         getTrainingPictures(cardId)
     }
+
 
     const quizContent = quizList.map((item) => {
         return (
@@ -108,56 +109,64 @@ function TrainingPage() {
 
     return(
         <>
-            <Form>
-                 <Form.Group widths='equal'>
-
-                    <Form.Field
-                    control={Select}
-                    label='Type'
-                    options={options}
-                    placeholder='item'
-                    onChange={handleChange}
-                    />
-                </Form.Group>
-    
-            </Form>
-            <h2>{itemsMenu(trainingItem)}</h2>
-
-            <button onClick={handleClick}>Load Content</button>
             <Container>
-                <h3>Quizzes</h3>
-                <Row xs={1} sm={1} md={1} className="g-4">
-                    {quizContent}
-                </Row>
+                <Form>
+                     <Form.Group widths='equal'>
+
+                        <Form.Field
+                        control={Select}
+                        label='Type'
+                        options={options}
+                        placeholder='item'
+                        onChange={handleChange}
+                        />
+                    </Form.Group>
+                </Form>
+                <h2>{itemsMenu(trainingItem)}</h2>
             </Container>
-
-            <br/>
-
+            <br />
             <Container>
-                <h3>Texts</h3>
-                <Row xs={1} sm={1} md={1} className="g-4">
-                    {textContent}
-                </Row>
+                <Button onClick={handleClick}>Load Content</Button>
             </Container>
+            
 
-            <br/>
-
-            <Container>
-                <h3>Videos</h3>
-                <Row xs={1} sm={1} md={1} className="g-4">
-                    {videoContent}
-                </Row>
-            </Container>
-
-            <br/>
-
-            <Container>
-                <h3>Pictures</h3>
-                <Row xs={1} sm={1} md={1} className="g-4">
-                    {pictureContent}
-                </Row>
-            </Container>
-
+            <Grid stackable columns={1} divided>
+                <Grid.Row>
+                    <Container>
+                        <h3>Quizzes</h3>
+                        <Row xs={1} sm={1} md={1} className="g-4">
+                            {quizContent}
+                        </Row>
+                    </Container>
+                </Grid.Row>
+                <Divider horizontal></Divider>
+                <Grid.Row>
+                    <Container>
+                        <h3>Texts</h3>
+                            <Row xs={1} sm={1} md={1} className="g-4">
+                                {textContent}
+                            </Row>
+                    </Container>
+                </Grid.Row>
+                <Divider horizontal></Divider>
+                <Grid.Row>
+                    <Container>
+                        <h3>Videos</h3>
+                            <Row xs={1} sm={1} md={1} className="g-4">
+                                {videoContent}
+                            </Row>
+                    </Container>
+                </Grid.Row>
+                <Divider horizontal></Divider>
+                <Grid.Row>
+                    <Container>
+                        <h3>Pictures</h3>
+                            <Row xs={1} sm={1} md={1} className="g-4">
+                                {pictureContent}
+                            </Row>
+                    </Container>
+                </Grid.Row>
+            </Grid>
         </>
     )
     

@@ -1,8 +1,8 @@
 import { useContext } from "react"
 import React from "react";
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { UserContext } from "../../../contexts/UserContext";
-import { Form, Checkbox } from 'semantic-ui-react'
+import { Form, Checkbox, Button, Icon } from 'semantic-ui-react'
 import { useEffect } from "react";
 
 function UserCards({id, name, email, is_admin}){
@@ -45,12 +45,11 @@ function UserCards({id, name, email, is_admin}){
     return(
         <>
             <Card>
-                <Card.Header as="h5"><i>{name}</i></Card.Header>
+                <Card.Header as="h5"><i>User ID:{id}</i></Card.Header>
                 <Card.Body>
-                <Card.Title>{name}</Card.Title>
+                <Card.Title>Name: {name}</Card.Title>
                 <Card.Text>
-                    {email} 
-                    -Id-{id}
+                    Email: {email} 
                     <Form>
                         <Form.Field>
                             {/* Selected value: <b>{value}</b> */}
@@ -78,7 +77,7 @@ function UserCards({id, name, email, is_admin}){
                         </Form.Field>
                     </Form>
                 </Card.Text>
-                <Button onClick={handleDelete}>delete</Button>
+                <Button onClick={handleDelete}>&nbsp;&nbsp;&nbsp;<Icon name="trash alternate"/></Button>
                 <Button onClick={handleClick}>Update Permission</Button>
                 </Card.Body>
             </Card>

@@ -1,10 +1,16 @@
-import React, {useState, useContext} from "react"
+import React, {useState, useContext, useEffect} from "react"
 import { useNavigate } from 'react-router-dom'; 
 import { UserContext } from '../../contexts/UserContext';
+import { TrainingContext } from "../../contexts/TrainingContext";
+import { Button, Form, Grid, Header, Image, Container, Segment } from 'semantic-ui-react'
+import logo from '../../images/improve-low-resolution-logo-transparent-background.png'
+
 
 
 function LoginPage(){
-    const {setUser} = useContext(UserContext);
+    const {setUser, user, currentUser, setCurrentUser} = useContext(UserContext);
+    const {counter, setCounter, allTrainings} = useContext(TrainingContext);
+    
 
     const defaultForm = {    
         email:"",
@@ -37,6 +43,7 @@ function LoginPage(){
             {r.json().then((user)=>{
               setUser(user)
               if(user.is_admin === true){
+                console.log(typeof(allTrainings))
                 navigate("/admindashboard")
               } else {
                 navigate("/mytrainings"); /*Maybe will have to remove push*/
@@ -48,23 +55,47 @@ function LoginPage(){
         else
             {r.json().then((e)=>setErrors(e.errors))} 
     }
+
+    useEffect(() => {
+      fetch("/me")
+      .then((response) => response.json())
+      .then((data) => setCurrentUser(data))
+      .then(() => {setCounter(counter + 1)})
+    }, [user])
+
+   
+
   
     return (
       <div>
-        <form className="Login" onSubmit={handleSubmit}>
-          <h1>ImprovE Training</h1>
-          <h3>Log in to your account</h3>
-          <label>email:</label>
-          <input type="text" name="email" value={formData.email} onChange={handleChange}/>
-          <br/>
-          <label>password:</label>
-          <input type="text" name="password" value={formData.password} onChange={handleChange}/>
-          <br/>
-          <button type="submit">Submit</button>
-        </form>
-        {errors.map((err) => (
-          <p key={err}>{err}</p>
-        ))}
+        <Container>
+        <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+          <Grid.Column style={{ maxWidth: 450 }}>
+            <Header as='h2' style={{color: 'white'}} textAlign='center'>
+              <Image alt="logo" src={logo} /> Log-in to your account
+            </Header>
+            <Form size='large' onSubmit={handleSubmit}>
+              <Segment stacked>
+                <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' name="email" value={formData.email} onChange={handleChange} />
+                <Form.Input
+                  fluid
+                  icon='lock'
+                  iconPosition='left'
+                  placeholder='Password'
+                  type='password'
+                  name="password" 
+                  value={formData.password} 
+                  onChange={handleChange}
+                />
+                <Button style={{color: 'white', background: '#FF9190'}}  fluid size='large' type="submit">
+                  Login
+                </Button>
+              </Segment>
+            </Form>
+          </Grid.Column>
+
+        </Grid>
+        </Container>
       </div>
     );
 }

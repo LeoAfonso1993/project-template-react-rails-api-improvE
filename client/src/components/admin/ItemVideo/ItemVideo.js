@@ -1,7 +1,8 @@
 import React from "react";
 import { useContext } from "react";
 import { TrainingContext } from "../../../contexts/TrainingContext";
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import { Icon, Button } from 'semantic-ui-react';
 
 function ItemVideo({name, id, answer, date}) {
 
@@ -17,12 +18,11 @@ function ItemVideo({name, id, answer, date}) {
     return (
         <Card>
           <Card.Body>
-            <Card.Title>{name}</Card.Title>
+            <Card.Title><strong>Title: {name}</strong></Card.Title>
             <Card.Text> 
-               Correct answer: {answer}
-               -date{date} -- {id}
+               Url: {answer}
             </Card.Text>
-            <Button onClick={handleDelete}>delete</Button>
+            <Button onClick={handleDelete}>&nbsp;&nbsp;&nbsp;<Icon name="trash alternate"/></Button>
           </Card.Body>
         </Card>
     )

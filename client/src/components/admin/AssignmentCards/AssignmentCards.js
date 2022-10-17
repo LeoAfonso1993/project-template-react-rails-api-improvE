@@ -1,7 +1,8 @@
 import { useContext } from "react"
 import React from "react";
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { TrainingContext } from "../../../contexts/TrainingContext";
+import { Icon, Button } from 'semantic-ui-react';
 
 
 function AssignmentCards({id, training, user}) {
@@ -23,7 +24,7 @@ function AssignmentCards({id, training, user}) {
             <Card.Text>
               {`Training: ${training} assingned to user: ${user}`}
             </Card.Text>
-            <Button onClick={handleDelete}>delete</Button>
+            <Button onClick={handleDelete}>&nbsp;&nbsp;&nbsp;<Icon name="trash alternate"/></Button>
           </Card.Body>
         </Card>
     )

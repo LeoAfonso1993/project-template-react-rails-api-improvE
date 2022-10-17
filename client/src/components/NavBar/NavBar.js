@@ -9,7 +9,7 @@ import { UserContext } from '../../contexts/UserContext';
 
 function NavBar() {
 
-    const {user, setUser} = useContext(UserContext);
+    const {user, setUser, setCurrentUser} = useContext(UserContext);
 
     const navigate = useNavigate();
 
@@ -24,17 +24,31 @@ function NavBar() {
         /*.then((response) => response.json())*/
         .then(() => setUser(null))
         .then(() => navigate("/"))
+        .then(() => setCurrentUser([]))
         .then(() => localStorage.clear())
     }
 
+    function handleHomeClick(){
+      if(user.is_admin === true){
+        console.log(typeof(allTrainings))
+        navigate("/admindashboard")
+      } else {
+        navigate("/mytrainings")
+      }
+    }
+
+
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" style={{color: 'white', background: '#0B0742'}} variant="dark">
           <Container>
             <Navbar.Brand href="#home">ImprovE</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
                 <Nav.Link>{user ? user.email : "" }</Nav.Link>
+              </Nav>
+              <Nav className="home-auto">
+                {user ? <Nav.Link onClick={handleHomeClick}>Home</Nav.Link> : "" }
               </Nav>
               <Nav>
                 <Nav.Link onClick={handleClick}>Logout</Nav.Link>

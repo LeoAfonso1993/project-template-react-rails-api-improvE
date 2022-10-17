@@ -21,22 +21,33 @@ export function TrainingContextProvider({children}) {
     const [displayT, setDisplayT] = useState([])
     const [score, setScore] = useState(0)
     const [trainingId, setTrainingId] = useState(0)
+    const [scoreList, setScoreList] = useState([])
      
+
+    function json2array(json){
+        var result = [];
+        var keys = Object.keys(json);
+        keys.forEach(function(key){
+            result.push(json[key]);
+        });
+        return result;
+    }
 
     const getCategList = useCallback(async () => {
         const response = await fetch("/allcategories");
         const results = await response.json();
-        setCategList(results);
+        setCategList(json2array(results));
     }, []);
 
     useEffect(() => {
         getCategList();
     }, [getCategList])
 
+
     const getAllTrainings = useCallback(async () => {
         const response = await fetch("/trainings");
         const results = await response.json();
-        setAllTrainings(results);
+        setAllTrainings(json2array(results));
     }, []);
 
     useEffect(() => {
@@ -52,6 +63,16 @@ export function TrainingContextProvider({children}) {
 
     useEffect(() => {
         getAllAssignments();
+    }, [counter])
+
+    const getAllScores = useCallback(async () => {
+        const response = await fetch("/allscores");
+        const results = await response.json();
+        setScoreList(json2array(results));
+    }, []);
+
+    useEffect(() => {
+        getAllScores();
     }, [counter])
 
 
@@ -122,7 +143,7 @@ export function TrainingContextProvider({children}) {
     }
 
     return (
-        <TrainingContext.Provider value={{categList, trainingId, setTrainingId, setCategList, allTrainings, setAllTrainings, counter, setCounter, cardId, setCardId, trainingItem, setTrainingItem, picUrl, setPicUrl, quizList, getTrainingQuizzes, textList, getTrainingTexts, videoList, getTrainingVideos, pictureList, getTrainingPictures, trainingUsers, setTrainingUsers, allAssignments, displayMyTrainings, displayT, setDisplayT, score, setScore}}>
+        <TrainingContext.Provider value={{scoreList, setScoreList, categList, trainingId, setTrainingId, setCategList, allTrainings, setAllTrainings, counter, setCounter, cardId, setCardId, trainingItem, setTrainingItem, picUrl, setPicUrl, quizList, getTrainingQuizzes, textList, getTrainingTexts, videoList, getTrainingVideos, pictureList, getTrainingPictures, trainingUsers, setTrainingUsers, allAssignments, displayMyTrainings, displayT, setDisplayT, score, setScore}}>
             {children}
         </TrainingContext.Provider>
     )

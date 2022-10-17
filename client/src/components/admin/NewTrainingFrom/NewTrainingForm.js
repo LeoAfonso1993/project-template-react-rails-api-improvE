@@ -1,7 +1,7 @@
 import { useState, useContext } from "react"
 import React from 'react'
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import { Icon, Button, Container } from 'semantic-ui-react'
 import { TrainingContext } from "../../../contexts/TrainingContext";
 import TrainingContainer from "../TrainingContainer/TrainingContainer";
 
@@ -64,24 +64,27 @@ function NewTrainingForm() {
 
     return (
         <>
+        <Container>
+            <h2>New Training</h2>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3">
+                        <Form.Label htmlFor="selectCategory">Select Category</Form.Label>
+                        <Form.Select id="questionTextInput"
+                            onChange={handleChangeCat}>
+                            {allCategOptions}
+                        </Form.Select>
+                        </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label htmlFor="trainingName">Training Name</Form.Label>
+                            <Form.Control id="answerTextInput" 
+                                type="text" 
+                                name="name" 
+                                onChange={handleChange}/>
+                    </Form.Group>
+                    <Button type="submit" style={{ color: 'white' }}>Create</Button>
+                </Form>
+        </Container>
 
-        <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3">
-            <Form.Label htmlFor="selectCategory">Select Category</Form.Label>
-            <Form.Select id="questionTextInput"
-            onChange={handleChangeCat}>
-                {allCategOptions}
-            </Form.Select>
-            </Form.Group>
-            <Form.Group className="mb-3">
-            <Form.Label htmlFor="trainingName">Training Name</Form.Label>
-            <Form.Control id="answerTextInput" 
-                type="text" 
-                name="name" 
-                onChange={handleChange}/>
-            </Form.Group>
-            <Button type="submit" style={{ color: 'white' }}>Create</Button>
-        </Form>
 
         <h3>All Tranings</h3>
         <TrainingContainer />

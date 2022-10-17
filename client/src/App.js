@@ -12,6 +12,8 @@ import TrainingPage from "./components/admin/TrainingPage/TrainingPage";
 import UserContainer from "./components/admin/UserContainer/UserContainer";
 import Assignments from "./components/admin/Assignments/Assignments";
 import UserTrainingPage from "./components/employee/UserTrainingPage/UserTrainingPage";
+import AdminSidebar from "./components/admin/AdminSidebar/AdminSidebar";
+
 
 
 function App() {

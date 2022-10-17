@@ -1,10 +1,11 @@
 import React from "react";
 import { useContext} from "react";
 import { TrainingContext } from "../../../contexts/TrainingContext";
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import { Icon, Button  } from 'semantic-ui-react';
 
-function ItemPicture({name, id, answer, date}) {
-  const {getTrainingPictures, cardId, pictureList} = useContext(TrainingContext);
+function ItemPicture({name, id, answer}) {
+  const {getTrainingPictures, cardId} = useContext(TrainingContext);
 
   function handleDelete() {
     fetch(`picture_delete/${id}`, {
@@ -17,13 +18,14 @@ function ItemPicture({name, id, answer, date}) {
     return (
         <Card>
           <Card.Body>
-            <Card.Title>{name}</Card.Title>
+            <Card.Title><strong>Title: {name}</strong></Card.Title>
             <Card.Text> 
-               -date{date} -- {id}
-               {console.log(pictureList)}
-               <img alt="" src={answer}></img>
+               Picture ID: {id}
             </Card.Text>
-            <Button onClick={handleDelete}>delete</Button>
+            <img style={{ width: 400 }} alt="" src={answer}></img>
+            <br />
+            <br />
+            <Button onClick={handleDelete}>&nbsp;&nbsp;&nbsp;<Icon name="trash alternate"/></Button>
           </Card.Body>
         </Card>
     )

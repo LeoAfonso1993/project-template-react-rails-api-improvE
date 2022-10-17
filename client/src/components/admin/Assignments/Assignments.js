@@ -6,6 +6,7 @@ import { UserContext } from '../../../contexts/UserContext';
 import { useState } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import AssignmentCards from '../AssignmentCards/AssignmentCards';
+import { Header, Image, Table, Icon, Grid, Segment, Divider } from 'semantic-ui-react'
 
 function Assignments(){
     const {allAssignments, counter, setCounter, allTrainings} = useContext(TrainingContext);
@@ -63,7 +64,17 @@ function Assignments(){
     const showTraining = allTrainings.map((training) => { 
             return(
                 <>
-                    <h3 key={training.name}>{training.id}-{training.name}</h3>
+                    <Table.Row  key={training.name}>
+                        <Table.Cell>
+                            <Header as='h4' image>
+                            <Icon name="bolt" />
+                            <Header.Content>
+                                {training.name}
+                            <Header.Subheader></Header.Subheader>                                </Header.Content>
+                            </Header>
+                        </Table.Cell>
+                        <Table.Cell>{training.id}</Table.Cell>
+                    </Table.Row>
                 </>
             )
         }
@@ -72,7 +83,17 @@ function Assignments(){
     const showUser = userList.map((u) => { 
         return(
             <>
-                <h3 key={u.name}>{u.id}-{u.name}</h3>
+                <Table.Row  key={u.name}>
+                    <Table.Cell>
+                        <Header as='h4' image>
+                        <Icon name="user" />
+                        <Header.Content>
+                            {u.name}
+                        <Header.Subheader></Header.Subheader>                                </Header.Content>
+                        </Header>
+                    </Table.Cell>
+                    <Table.Cell>{u.id}</Table.Cell>
+                </Table.Row>
             </>
         )
     }
@@ -94,28 +115,68 @@ function Assignments(){
 
     return(
         <>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group widths='equal'>
-                    <select defaultValue="" onChange={handleChangeTraining}>
-                    <option disabled={true} value="">Select Training</option>
-                        {displayTraining}
-                    </select>
-                </Form.Group>
-                
-                <Form.Group widths='equal'>
-                    <select onChange={handleChangeUser}>
-                        {displayUser}
-                    </select>
-                </Form.Group>
-                <Button type="submit" style={{ color: 'white' }}>Assing</Button>
-            </Form> 
-            {showTraining}
-            {showUser}
-
-            <h3>All Assignments</h3>
-
             <Container>
-                <h1>Training Cards</h1>
+                <h2>New Assignment</h2>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group widths='equal'>
+                        <select defaultValue="" onChange={handleChangeTraining}>
+                        <option disabled={true} value="">Select Training</option>
+                            {displayTraining}
+                        </select>
+                    </Form.Group>
+                
+                    <Form.Group widths='equal'>
+                        <select onChange={handleChangeUser}>
+                            {displayUser}
+                        </select>
+                    </Form.Group>
+                    <Button type="submit" style={{ color: 'white' }}>Assing</Button>
+                </Form> 
+            </Container>
+            <br />
+            <Container>
+                <h2>All Assignments</h2>
+                    <Grid stackable columns={2}>
+                        <Grid.Row>
+                            <Grid.Column>
+                                <Segment>
+                                    <Table>
+                                        <Table.Header>
+                                            <Table.Row>
+                                                <Table.HeaderCell width={8}>Training Name</Table.HeaderCell>
+                                                <Table.HeaderCell width={2}>Training ID</Table.HeaderCell>
+                                            </Table.Row>
+                                        </Table.Header>
+                                        <Table.Body>
+                                            {showTraining}
+                                        </Table.Body>
+                                    </Table>
+                                </Segment>
+                            </Grid.Column>
+
+                            <Grid.Column>
+                                <Segment>
+                                    <Table>
+                                        <Table.Header>
+                                            <Table.Row>
+                                                <Table.HeaderCell width={8}>User Name</Table.HeaderCell>
+                                                <Table.HeaderCell width={2}>User ID</Table.HeaderCell>
+                                            </Table.Row>
+                                        </Table.Header>
+                                        <Table.Body>
+                                            {showUser}
+                                        </Table.Body>
+                                    </Table>
+                                </Segment>
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
+
+
+            </Container>
+            <br />
+            <Container>
+                <h2>Training Cards</h2>
                 <Row xs={1} sm={1} md={1} className="g-4">
                     {displayAssignments}
                 </Row>
