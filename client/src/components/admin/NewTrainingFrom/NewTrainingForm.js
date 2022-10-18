@@ -1,14 +1,14 @@
 import { useState, useContext } from "react"
 import React from 'react'
 import Form from 'react-bootstrap/Form';
-import { Icon, Button, Container } from 'semantic-ui-react'
+import { Icon, Button, Container, Grid } from 'semantic-ui-react'
 import { TrainingContext } from "../../../contexts/TrainingContext";
 import TrainingContainer from "../TrainingContainer/TrainingContainer";
 
 
 
 function NewTrainingForm() {
-
+    document.title = "improvE | New Training"
     const {categList, counter, setCounter} = useContext(TrainingContext);
 
     const [catId, setCatID] = useState(1)
@@ -63,9 +63,9 @@ function NewTrainingForm() {
     }
 
     return (
-        <>
-        <Container>
-            <h2>New Training</h2>
+        <div id="trainingContainer">
+        <Container >
+            <h2 style={{color: 'white'}}>New Training</h2>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3">
                         <Form.Label htmlFor="selectCategory">Select Category</Form.Label>
@@ -81,14 +81,17 @@ function NewTrainingForm() {
                                 name="name" 
                                 onChange={handleChange}/>
                     </Form.Group>
-                    <Button type="submit" style={{ color: 'white' }}>Create</Button>
+                    <Button type="submit" style={{color: 'white', background: '#FF9190'}}>Create</Button>
                 </Form>
         </Container>
-
-
-        <h3>All Tranings</h3>
-        <TrainingContainer />
-        </>
+        <br/>
+        <Container>
+            <h2 style={{color: 'white'}}>All Tranings</h2>
+            <TrainingContainer />
+        </Container>
+        <br/>
+        <br/>
+        </div>
     )
     
 }

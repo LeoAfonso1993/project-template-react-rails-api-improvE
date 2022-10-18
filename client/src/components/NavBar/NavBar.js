@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
+import logo from "../../images/improve-low-resolution-logo-transparent-background.png"
 
 
 
@@ -41,7 +42,8 @@ function NavBar() {
     return (
         <Navbar collapseOnSelect expand="lg" style={{color: 'white', background: '#0B0742'}} variant="dark">
           <Container>
-            <Navbar.Brand href="#home">ImprovE</Navbar.Brand>
+            <Navbar.Brand href="#home">
+              <img alt="logo" src={logo} style={{height: "30px"}} >{}</img>&nbsp;ImprovE</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">

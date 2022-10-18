@@ -4,12 +4,14 @@ import { UserContext } from '../../contexts/UserContext';
 import { TrainingContext } from "../../contexts/TrainingContext";
 import { Button, Form, Grid, Header, Image, Container, Segment } from 'semantic-ui-react'
 import logo from '../../images/improve-low-resolution-logo-transparent-background.png'
+import loginStyle from "../LoginPage/LoginPage.module.css"
 
 
 
 function LoginPage(){
     const {setUser, user, currentUser, setCurrentUser} = useContext(UserContext);
     const {counter, setCounter, allTrainings} = useContext(TrainingContext);
+    document.title = "improvE | Login"
     
 
     const defaultForm = {    
@@ -67,10 +69,9 @@ function LoginPage(){
 
   
     return (
-      <div>
-        <Container>
-        <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-          <Grid.Column style={{ maxWidth: 450 }}>
+      <div className={loginStyle.background}>
+        <Grid textAlign='center' style={{ height: '100vh'}} verticalAlign='middle'>
+          <Grid.Column style={{ maxWidth: 450 }} className={loginStyle.box}>
             <Header as='h2' style={{color: 'white'}} textAlign='center'>
               <Image alt="logo" src={logo} /> Log-in to your account
             </Header>
@@ -95,7 +96,6 @@ function LoginPage(){
           </Grid.Column>
 
         </Grid>
-        </Container>
       </div>
     );
 }

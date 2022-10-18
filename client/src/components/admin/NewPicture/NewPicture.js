@@ -74,8 +74,9 @@ function NewPicture({setPictureData, pictureData}) {
           <Form onSubmit={handleUpload}>
             <input type="file" name="image id="image onChange={onChange}></input>
              {/* {image && <img src={image} alt="The current file" />} */} 
-
-            <Form.Field type="submit" control={Button}>&nbsp;&nbsp;&nbsp;{loadButton}</Form.Field>
+            <br/>
+            <br/>
+            <Form.Field style={{color: 'white', background: '#FF9190' }}  type="submit" control={Button}>&nbsp;&nbsp;&nbsp;{loadButton}</Form.Field>
           </Form>
           <h3>{isLoading? <Loader active inline='centered' /> : ""}</h3>
         </>

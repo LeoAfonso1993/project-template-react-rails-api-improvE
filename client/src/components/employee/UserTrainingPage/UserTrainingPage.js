@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { UserContext } from '../../../contexts/UserContext';
 import CardsUserTraining from '../CardsUserTraining/CardsUserTraining';
 import { useNavigate } from "react-router-dom";
+import { Button } from 'semantic-ui-react'
 
 
 function UserTrainingPage(){
@@ -14,6 +15,7 @@ function UserTrainingPage(){
     const {displayT, setDisplayT, score, setScore, trainingId, setTrainingId} = useContext(TrainingContext);
     const {user} = useContext(UserContext)
     const [questionNumber, setQuestionNumber] = useState(0)
+    document.title = "improvE | Training"
     
     const showItems = displayT.map((item) => {
         return(
@@ -68,13 +70,16 @@ function UserTrainingPage(){
 
     return(
         <>
-            <Container>
+            <Container id="userTraining">
                 <h1>Training</h1>
                 <Row xs={1} sm={1} md={1} className="g-4">
                     {showItems}
                 </Row>
             </Container>
-            <button type="button" onClick={handleClick}>Complete Training</button>
+            <br/>
+            <Button style={{color: 'white', background: '#5E72EB' }} type="button" onClick={handleClick}>Complete Training</Button>
+            <br/>
+            <br/>       
         </>
     ) 
 }

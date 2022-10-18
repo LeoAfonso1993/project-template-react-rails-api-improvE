@@ -30,7 +30,7 @@ function CardsUserTraining({id, header, content, type, score, setScore, question
     return (
         <>
             <Card>
-                <Card.Header as="h5"><i>{type}</i></Card.Header>  
+                <Card.Header style={{background: "#FF9190"}} as="h5"><i>{type}</i></Card.Header>  
                 <Card.Body>
                 <Card.Text>
                 <br/>

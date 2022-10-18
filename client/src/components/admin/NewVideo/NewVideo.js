@@ -76,7 +76,7 @@ function NewVideo(){
                 </Form.Group>
 
 
-                <Form.Field type="submit" control={Button}>Create Video</Form.Field>
+                <Form.Field style={{color: 'white', background: '#5E72EB' }} type="submit" control={Button}>Create Video</Form.Field>
             </Form>
         </>
     )

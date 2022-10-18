@@ -1,8 +1,8 @@
 import React from "react";
-import { Card, Button } from 'react-bootstrap';
 import { UserContext } from "../../../contexts/UserContext";
 import { Form, Checkbox } from 'semantic-ui-react'
 import { useEffect, useState } from "react";
+import { Button } from 'semantic-ui-react'
 
 function UserQuiz({content, type, id, header, score, setScore, newArray, questionNumber, setQuestionNumber}) {
 
@@ -36,10 +36,12 @@ function UserQuiz({content, type, id, header, score, setScore, newArray, questio
             {answerSubmit ? "Answer submitted" : 
             <form>
                 <h4>{header}</h4>
-                <select onChange={handleChange}>
+                <select style={{width: "80%"}} onChange={handleChange}>
                     {allOptions}
                 </select>
-                <button type="button" onClick={handleClick}>Submit Answer</button>
+                <br/>
+                <br/>
+                <Button style={{color: 'white', background: '#5E72EB' }} type="button" onClick={handleClick}>Submit Answer</Button>
             </form>
             }
        </>

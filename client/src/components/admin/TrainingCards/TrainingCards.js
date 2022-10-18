@@ -32,9 +32,10 @@ function TrainingCards({name, categ, id}){
           <Card.Body>
             <Card.Title><strong>{name}</strong></Card.Title>
             <Card.Text>
+              <h5>Training ID: {id}</h5>
             </Card.Text>
-            <Button onClick={handleDelete}>&nbsp;&nbsp;&nbsp;<Icon name="trash alternate"/></Button>
-            <Button onClick={handleClick}>Open and Edit</Button>
+            <Button onClick={handleDelete} style={{color: 'white', background: '#FF9190' }}>&nbsp;&nbsp;&nbsp;<Icon name="trash alternate"/></Button>
+            <Button onClick={handleClick} style={{color: 'white', background: '#5E72EB' }}>Open and Edit</Button>
           </Card.Body>
         </Card>
       );

@@ -77,8 +77,8 @@ function UserCards({id, name, email, is_admin}){
                         </Form.Field>
                     </Form>
                 </Card.Text>
-                <Button onClick={handleDelete}>&nbsp;&nbsp;&nbsp;<Icon name="trash alternate"/></Button>
-                <Button onClick={handleClick}>Update Permission</Button>
+                <Button onClick={handleDelete} style={{color: 'white', background: '#FF9190'}}>&nbsp;&nbsp;&nbsp;<Icon name="trash alternate"/></Button>
+                <Button onClick={handleClick} style={{color: 'white', background: '#5E72EB' }}>Update Permission</Button>
                 </Card.Body>
             </Card>
         </>

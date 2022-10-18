@@ -8,7 +8,7 @@ function UserPicture({content, id, header}){
             <Container key={id} text>
                 <Header as='h2'>{header}</Header>
                 <p>{content.description}</p>
-                <img style={{ width: 600 }} alt="" src={content.url}></img>
+                <img style={{ maxWidth: "90%" }} alt="" src={content.url}></img>
             </Container>
         </>
     )

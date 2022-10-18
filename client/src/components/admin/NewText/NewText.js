@@ -43,7 +43,7 @@ function NewText(){
     
     return(
         <>
-            <h3>New Text</h3>
+            <h3 style={{color: 'white'}}>New Text</h3>
             <Form onSubmit={handleSubmit}>
                 <Form.Group widths='equal'>
                     <Form.Field
@@ -67,7 +67,7 @@ function NewText(){
                 </Form.Group>
 
 
-                <Form.Field type="submit" control={Button}>Create Text</Form.Field>
+                <Form.Field style={{color: 'white', background: '#5E72EB' }}  type="submit" control={Button}>Create Text</Form.Field>
             </Form>
         </>
     )

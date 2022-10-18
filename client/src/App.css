@@ -1,9 +1,25 @@
 .App {
-  /* background-image: url(./images/pexels-felix-mittermeier-1146134.jpg); */
-  background: #bec8ff;
-  height: 100%;
+  background-image: url(./images/pexels-felix-mittermeier-1146134.jpg); 
+  /* background: #bec8ff; */
+  min-height: 100vh;
   background-size: cover;
   text-align: center;
+  background-repeat:repeat-y;
+}
+
+#cardContainer{
+  background: rgba(255, 255, 255, 0.953);
+  color: rgb(0, 0, 0);
+}
+
+#trainingContainer{
+  min-height: 100vh;
+  display: inline-block;
+
+}
+
+#userTraining{
+  max-width: 900px;
 }
 
 .App-logo {

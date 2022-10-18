@@ -10,6 +10,8 @@ import { Container, Button } from 'semantic-ui-react'
 function UserContainer() {
 
     const{setCounter, counter} = useContext(UserContext)
+    document.title = "improvE | New User"
+    
 
     const defaultUser = {    
         name:"",
@@ -54,9 +56,12 @@ function UserContainer() {
 
     return(
         <>
+    
+        <div id="trainingContainer">
         <Container>
+            <br/>
             <Form onSubmit={handleSubmit}>
-                <h1>New User</h1>
+                <h2 style={{color: 'white'}}>New User</h2>
                 <Form.Group widths='equal'>
                     <Form.Field
                         id='form-input-control-name'
@@ -106,16 +111,21 @@ function UserContainer() {
                 </Form.Group>
 
                 <Form.Field
+                    style={{color: 'white', background: '#FF9190'}}
                     id='form-button-control-public'
                     control={Button}
                     content='Create'
                 />
             </Form>
         </Container>
-        
-
-        <h3>All Users</h3>
-        <UserSection />
+        <br/>
+        <Container>
+            <h2 style={{color: 'white' }}>All Users</h2>
+            <UserSection />
+        </Container>
+        <br/>
+        <br/>
+        </div>
         </>
     )
 

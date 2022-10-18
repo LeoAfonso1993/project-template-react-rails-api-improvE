@@ -110,6 +110,7 @@ function TrainingPage() {
     return(
         <>
             <Container>
+                <br/>
                 <Form>
                      <Form.Group widths='equal'>
 
@@ -126,14 +127,14 @@ function TrainingPage() {
             </Container>
             <br />
             <Container>
-                <Button onClick={handleClick}>Load Content</Button>
+                <Button style={{color: 'white', background: '#FF9190' }} onClick={handleClick}>Load Content</Button>
             </Container>
-            
-
+            <br/>    
+            <Container>
             <Grid stackable columns={1} divided>
                 <Grid.Row>
                     <Container>
-                        <h3>Quizzes</h3>
+                        <h3 style={{color: 'white'}} >Quizzes</h3>
                         <Row xs={1} sm={1} md={1} className="g-4">
                             {quizContent}
                         </Row>
@@ -142,7 +143,7 @@ function TrainingPage() {
                 <Divider horizontal></Divider>
                 <Grid.Row>
                     <Container>
-                        <h3>Texts</h3>
+                        <h3 style={{color: 'white'}}>Texts</h3>
                             <Row xs={1} sm={1} md={1} className="g-4">
                                 {textContent}
                             </Row>
@@ -151,7 +152,7 @@ function TrainingPage() {
                 <Divider horizontal></Divider>
                 <Grid.Row>
                     <Container>
-                        <h3>Videos</h3>
+                        <h3 style={{color: 'white'}}>Videos</h3>
                             <Row xs={1} sm={1} md={1} className="g-4">
                                 {videoContent}
                             </Row>
@@ -160,13 +161,14 @@ function TrainingPage() {
                 <Divider horizontal></Divider>
                 <Grid.Row>
                     <Container>
-                        <h3>Pictures</h3>
+                        <h3 style={{color: 'white'}}>Pictures</h3>
                             <Row xs={1} sm={1} md={1} className="g-4">
                                 {pictureContent}
                             </Row>
                     </Container>
                 </Grid.Row>
             </Grid>
+            </Container>
         </>
     )
     

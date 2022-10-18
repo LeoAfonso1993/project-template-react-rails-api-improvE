@@ -9,6 +9,7 @@ import TrainingCards from "../TrainingCards/TrainingCards";
 import { Grid, Segment } from 'semantic-ui-react'
 import { Icon, List, Button, Container } from 'semantic-ui-react'
 import { Divider } from 'semantic-ui-react'
+import dashStyle from "../AdminDashboard/AdminDashboard.module.css"
 
 
 
@@ -19,7 +20,7 @@ function Dashboard(){
 
 
     const tCards = allTrainings.map((training) => {
-        console.log(allTrainings)
+        //console.log(allTrainings)
         return(
             <Col>
                 <TrainingCards 
@@ -32,13 +33,7 @@ function Dashboard(){
         )
     })
 
-    // allTrainings.forEach((element, index, array) => {
-    //     console.log(element.name); // 100, 200, 300
-    //     console.log(element.id); // 0, 1, 2
-    //     console.log(element.category_id); // same myArray object 3 times
-    // });
-
-    console.log(userList)
+    //console.log(userList)
     
     useEffect(() => {
         getAllUsers()
@@ -93,18 +88,19 @@ function Dashboard(){
 
 
     return (
-        <>  
-          <Container>
+        <> 
+            {document.title = "improvE | Dashboard"} 
+          <Container className={dashStyle.container} id="dashContainer">
             <Grid stackable columns={3} divided>
-                <Grid.Row>
-                    <Grid.Column>
-                        <Segment><Button onClick={handleClick}>New Training</Button></Segment>
+                <Grid.Row id="dashBttonC">
+                    <Grid.Column id="dashBttonC">
+                        <Segment><Button className={dashStyle.buttonOne} onClick={handleClick} style={{color: 'white', background: '#FF9190' }}>New Training</Button></Segment>
                     </Grid.Column>
                     <Grid.Column>
-                        <Segment><Button onClick={handleClickUsers}>Manage Users</Button></Segment>
+                        <Segment><Button className={dashStyle.buttonTwo} onClick={handleClickUsers} style={{color: 'white', background: '#FF9190'}}>Manage Users</Button></Segment>
                     </Grid.Column>
                     <Grid.Column>
-                    <Segment><Button onClick={handleClickAssignments}>Manage Assignments</Button></Segment>
+                    <Segment><Button className={dashStyle.buttonThree} onClick={handleClickAssignments} style={{color: 'white', background: '#FF9190'}}>Manage Assignments</Button></Segment>
                     </Grid.Column>   
                 </Grid.Row>
             </Grid>

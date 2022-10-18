@@ -25,7 +25,7 @@ function ItemPicture({name, id, answer}) {
             <img style={{ width: 400 }} alt="" src={answer}></img>
             <br />
             <br />
-            <Button onClick={handleDelete}>&nbsp;&nbsp;&nbsp;<Icon name="trash alternate"/></Button>
+            <Button style={{color: 'white', background: '#FF9190' }} onClick={handleDelete}>&nbsp;&nbsp;&nbsp;<Icon name="trash alternate"/></Button>
           </Card.Body>
         </Card>
     )

@@ -11,6 +11,7 @@ import { Header, Image, Table, Icon, Grid, Segment, Divider } from 'semantic-ui-
 function Assignments(){
     const {allAssignments, counter, setCounter, allTrainings} = useContext(TrainingContext);
     const {userList} = useContext(UserContext);
+    document.title = "improvE | New Assignment"
     const aData = []
 
     const defaultUserTraining = {    
@@ -116,7 +117,7 @@ function Assignments(){
     return(
         <>
             <Container>
-                <h2>New Assignment</h2>
+                <h2 style={{color: 'white'}}>New Assignment</h2>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group widths='equal'>
                         <select defaultValue="" onChange={handleChangeTraining}>
@@ -130,12 +131,12 @@ function Assignments(){
                             {displayUser}
                         </select>
                     </Form.Group>
-                    <Button type="submit" style={{ color: 'white' }}>Assing</Button>
+                    <Button type="submit" style={{color: 'white', background: '#FF9190' }}>Assing</Button>
                 </Form> 
             </Container>
             <br />
             <Container>
-                <h2>All Assignments</h2>
+                <h2 style={{color: 'white'}}>All Assignments</h2>
                     <Grid stackable columns={2}>
                         <Grid.Row>
                             <Grid.Column>
@@ -176,11 +177,13 @@ function Assignments(){
             </Container>
             <br />
             <Container>
-                <h2>Training Cards</h2>
+                <h2 style={{color: 'white'}}>Training Cards</h2>
                 <Row xs={1} sm={1} md={1} className="g-4">
                     {displayAssignments}
                 </Row>
             </Container>
+            <br/>
+            <br/>
         </>
     )
 }

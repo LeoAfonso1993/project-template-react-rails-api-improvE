@@ -21,7 +21,7 @@ function ItemQuiz({name, id, answer, date}) {
             <Card.Text> 
                Correct answer: {answer}
             </Card.Text>
-            <Button onClick={handleDelete}>&nbsp;&nbsp;&nbsp;<Icon name="trash alternate"/></Button>
+            <Button style={{color: 'white', background: '#FF9190' }}  onClick={handleDelete}>&nbsp;&nbsp;&nbsp;<Icon name="trash alternate"/></Button>
           </Card.Body>
         </Card>
     )
