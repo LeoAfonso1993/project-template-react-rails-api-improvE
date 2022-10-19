@@ -41,7 +41,7 @@ export function TrainingContextProvider({children}) {
 
     useEffect(() => {
         getCategList();
-    }, [getCategList])
+    }, [counter])
 
 
     const getAllTrainings = useCallback(async () => {

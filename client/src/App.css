@@ -57,3 +57,106 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width:510px) {
+
+    #intro{
+      margin-left: -120px;
+      width: 250px;    
+  
+    }
+
+    #intro_2{
+      margin-left: -120px;
+      width: 250px; 
+
+    }
+
+    #btn_1{
+      margin-bottom: 10px;
+      margin-left: -35px;
+    }
+
+    #btn_2{
+      margin-left: -45px;
+    }
+
+}
+
+@media screen and (max-width:693px) {
+
+  #intro{
+    margin-left: -40px;
+    width: 250px;    
+
+  }
+
+  #intro_2{
+    margin-left: -40px;
+    width: 250px; 
+
+  }
+
+  #btn_1{
+    margin-bottom: 10px;
+    margin-left: -35px;
+    margin-right: 50px;
+  }
+
+  #btn_2{
+    margin-left: -45px;
+  }
+
+}
+
+@media screen and (max-width:392px) {
+
+  #intro{
+    margin-left: -180px;
+    width: 250px;    
+
+  }
+
+  #intro_2{
+    margin-left: -180px;
+    width: 250px; 
+
+  }
+
+  #btn_1{
+    margin-bottom: 10px;
+    margin-left: -100px;
+    margin-right: 50px;
+  }
+
+  #btn_2{
+    margin-left: -110px;
+  }
+
+}
+
+@media screen and (max-width:430px) {
+
+  #intro{
+    margin-left: -165px;
+    width: 250px;    
+
+  }
+
+  #intro_2{
+    margin-left: -165px;
+    width: 250px; 
+
+  }
+
+  #btn_1{
+    margin-bottom: 10px;
+    margin-left: -80px;
+    margin-right: 50px;
+  }
+
+  #btn_2{
+    margin-left: -90px;
+  }
+
+}
