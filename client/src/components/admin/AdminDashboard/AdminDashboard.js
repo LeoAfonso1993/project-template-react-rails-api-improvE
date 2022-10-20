@@ -15,7 +15,7 @@ import dashStyle from "../AdminDashboard/AdminDashboard.module.css"
 
 function Dashboard(){
     const navigate = useNavigate();
-    const {allTrainings, counter, setCounter, scoreList, setScoreList} = useContext(TrainingContext);
+    const {allTrainings, counter, setCounter, scoreList} = useContext(TrainingContext);
     const {userList, getAllUsers} = useContext(UserContext);
 
 

@@ -1,12 +1,12 @@
 import React from 'react'
-import { useContext, useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { UserContext} from '../../../contexts/UserContext'
 import { Row, Col, Container } from 'react-bootstrap';
 import UserTrainingCards from '../UserTrainingCards/UserTrainingCards';
 import { Icon, Button } from 'semantic-ui-react'
 
 function MyTraining() {
-    const {user, trainingData, setTrainingData, counter, setCounter} = useContext(UserContext);
+    const {user, trainingData, counter, setCounter} = useContext(UserContext);
     document.title = "improvE | My Training"
 
 

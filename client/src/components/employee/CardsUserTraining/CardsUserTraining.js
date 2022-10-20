@@ -7,7 +7,7 @@ import UserQuiz from "../UserQuiz/UserQuiz";
 import UserText from "../UserText/UserText"
 import UserVideo from "../UserVideo/UserVideo";
 import UserPicture from "../UserPicture/UserPicture";
-import { useState, useEffect } from "react";
+
 
 function CardsUserTraining({id, header, content, type, score, setScore, questionNumber, setQuestionNumber}){
 

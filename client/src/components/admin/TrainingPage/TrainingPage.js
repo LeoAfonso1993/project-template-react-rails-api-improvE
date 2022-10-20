@@ -5,7 +5,7 @@ import NewQuiz from "../NewQuiz/NewQuiz";
 import NewText from "../NewText/NewText";
 import NewVideo from "../NewVideo/NewVideo";
 import PictureContainer from "../PictureContainer/PictureContainer";
-import { Row, Col, Card } from 'react-bootstrap';
+import { Row, Col} from 'react-bootstrap';
 import ItemQuiz from "../ItemQuiz/ItemQuiz";
 import ItemText from "../ItemText/ItemText";
 import ItemVideo from "../ItemVideo/ItemVideo";

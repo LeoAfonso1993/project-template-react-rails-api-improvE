@@ -1,7 +1,7 @@
 import { useState, useContext } from "react"
 import React from 'react'
 import Form from 'react-bootstrap/Form';
-import { Icon, Button, Container, Grid } from 'semantic-ui-react'
+import { Button, Container } from 'semantic-ui-react'
 import { TrainingContext } from "../../../contexts/TrainingContext";
 import TrainingContainer from "../TrainingContainer/TrainingContainer";
 

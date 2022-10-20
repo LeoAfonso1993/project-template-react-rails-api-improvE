@@ -4,7 +4,7 @@ import { TrainingContext } from "../../../contexts/TrainingContext";
 import { Card } from 'react-bootstrap';
 import { Icon, Button } from 'semantic-ui-react';
 
-function ItemVideo({name, id, answer, date}) {
+function ItemVideo({name, id, answer}) {
 
     const {getTrainingVideos, cardId} = useContext(TrainingContext);
 

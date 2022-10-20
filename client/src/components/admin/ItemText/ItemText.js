@@ -4,7 +4,7 @@ import { TrainingContext } from "../../../contexts/TrainingContext";
 import { Card } from 'react-bootstrap';
 import { Icon, Button } from 'semantic-ui-react'
 
-function ItemText({name, id, answer, date}) {
+function ItemText({name, id, answer}) {
   const {getTrainingTexts, cardId} = useContext(TrainingContext);
 
   function handleDelete() {

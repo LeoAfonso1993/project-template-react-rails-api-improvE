@@ -1,10 +1,8 @@
 import React from "react";
-import { UserContext } from "../../../contexts/UserContext";
-import { Form, Checkbox } from 'semantic-ui-react'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from 'semantic-ui-react'
 
-function UserQuiz({content, type, id, header, score, setScore, newArray, questionNumber, setQuestionNumber}) {
+function UserQuiz({content, header, score, setScore, newArray, questionNumber, setQuestionNumber}) {
 
     const [answerSubmit, setAnswerSubmit] = useState(false)
     const [answerData, setAnswerData] = useState("")

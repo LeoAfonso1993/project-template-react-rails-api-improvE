@@ -2,14 +2,14 @@ import React, {useState, useContext, useEffect} from "react"
 import { useNavigate } from 'react-router-dom'; 
 import { UserContext } from '../../contexts/UserContext';
 import { TrainingContext } from "../../contexts/TrainingContext";
-import { Button, Form, Grid, Header, Image, Container, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
 import logo from '../../images/improve-low-resolution-logo-transparent-background.png'
 import loginStyle from "../LoginPage/LoginPage.module.css"
 
 
 
 function LoginPage(){
-    const {setUser, user, currentUser, setCurrentUser} = useContext(UserContext);
+    const {setUser, user, setCurrentUser} = useContext(UserContext);
     const {counter, setCounter, allTrainings} = useContext(TrainingContext);
     document.title = "improvE | Login"
     

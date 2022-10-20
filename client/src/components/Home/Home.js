@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { TrainingContext } from '../../contexts/TrainingContext';
-import { Button, Form, Grid, Header, Image, Container, Segment } from 'semantic-ui-react'
+import { Button, Grid, Container } from 'semantic-ui-react'
 
 
 

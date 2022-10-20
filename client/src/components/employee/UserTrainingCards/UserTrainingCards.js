@@ -9,7 +9,7 @@ import { Button } from 'semantic-ui-react'
 function UserTrainingCards({id, name}){
   const navigate = useNavigate();
 
-  const{displayMyTrainings, trainingId, setTrainingId} = useContext(TrainingContext)
+  const{displayMyTrainings, setTrainingId} = useContext(TrainingContext)
 
   useEffect(() => {
     displayMyTrainings(id)

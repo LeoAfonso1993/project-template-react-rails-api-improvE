@@ -6,7 +6,7 @@ import { UserContext } from '../../../contexts/UserContext';
 import { useState } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import AssignmentCards from '../AssignmentCards/AssignmentCards';
-import { Header, Image, Table, Icon, Grid, Segment, Divider } from 'semantic-ui-react'
+import { Header, Table, Icon, Grid, Segment } from 'semantic-ui-react'
 
 function Assignments(){
     const {allAssignments, counter, setCounter, allTrainings} = useContext(TrainingContext);

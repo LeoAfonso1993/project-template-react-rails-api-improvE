@@ -7,7 +7,7 @@ import { Icon, Button } from 'semantic-ui-react'
 
 
 
-function TrainingCards({name, categ, id}){
+function TrainingCards({name, id}){
 
     const {counter, setCounter, setCardId, getTrainingQuizzes, cardId} = useContext(TrainingContext);
     const navigate = useNavigate();

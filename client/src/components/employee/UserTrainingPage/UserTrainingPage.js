@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { TrainingContext } from "../../../contexts/TrainingContext";
 import React from 'react'
 import { Row, Col, Container } from 'react-bootstrap';
@@ -12,7 +12,7 @@ import { Button } from 'semantic-ui-react'
 function UserTrainingPage(){
     const navigate = useNavigate();
 
-    const {displayT, setDisplayT, score, setScore, trainingId, setTrainingId} = useContext(TrainingContext);
+    const {displayT, score, setScore, trainingId} = useContext(TrainingContext);
     const {user} = useContext(UserContext)
     const [questionNumber, setQuestionNumber] = useState(0)
     document.title = "improvE | Training"
