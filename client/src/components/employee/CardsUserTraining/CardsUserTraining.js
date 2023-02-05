@@ -36,7 +36,7 @@ function CardsUserTraining({id, header, content, type, score, setScore, question
                 <br/>
                     {type === "quiz" ? <UserQuiz id={id} questionNumber={questionNumber} setQuestionNumber={setQuestionNumber} header={header} newArray={newArray} content={content} type={type} setScore={setScore} score={score}/> : console.log("")}
                     {type === "text" ? <UserText id={id} header={header} newArray={newArray} content={content} type={type} /> : console.log("")}
-                    {type === "video" ? <UserVideo id={id} header={header} content={content} type={type} /> : console.log("")}
+                    {type === "video" ? <UserVideo id={id} header={header} content={content} type={type} url={content.url} /> : console.log("")}
                     {type === "picture" ? <UserPicture id={id} header={header} content={content} /> : console.log("")}
               
                 </Card.Text>
