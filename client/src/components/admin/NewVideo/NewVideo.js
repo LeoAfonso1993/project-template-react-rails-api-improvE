@@ -70,7 +70,7 @@ function NewVideo(){
                     control={Input}
                     value={videoData.url}
                     label='url'
-                    placeholder='url'
+                    placeholder='embed url'
                     onChange={handleChange}
                 />
                 </Form.Group>
